@@ -1,3 +1,6 @@
-# My Awesome Book
+# APP
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+由于我对app和微信端的内容不太了解,所以又添加了这个GIT笔记.
+
+现在正在记录的是&lt;App后台开发运维和架构实战&gt;,一般在同事微信里看到书.
+
