@@ -2,7 +2,7 @@
 
 * [README](README.md)
 * [App后台常用技术](chapter1.md)
-  * [入门](入门.md)
+  * [开始](开始.md)
     * [App的诞生](入门/appde-dan-sheng.md)
     * [App的开发模式](入门/appde-kai-fa-mo-shi.md)
   * [基础](基础.md)
@@ -12,7 +12,7 @@
     * 消息队列软件
     * 分布式业务复用
     * 搜索相关技术
-    * 定时任务
+    * [定时任务](基础/ding-shi-ren-wu.md)
   * [核心](核心.md)
 * [App后台常用服务](apphou-tai-chang-yong-fu-wu.md)
   * Linux
