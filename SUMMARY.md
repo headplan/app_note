@@ -14,6 +14,17 @@
     * 搜索相关技术
     * [定时任务](基础/ding-shi-ren-wu.md)
   * [核心](核心.md)
+    * 用户验证方案
+    * App通信安全
+    * 短信服务
+    * 处理表情的一些技巧
+    * 高效更新数据
+    * 图片处理
+    * 视频处理
+    * 获取APK和IPA文件里的资源
+    * 文件系统
+    * ELK日志分析平台
+    * Docker构建一致的开发流程
 * [App后台常用服务](apphou-tai-chang-yong-fu-wu.md)
   * Linux
   * Nginx
