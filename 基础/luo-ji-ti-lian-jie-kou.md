@@ -56,5 +56,11 @@
 
 **4.功能模块接口UML\(设计出API\)**
 
-的
+> UML类图可以使用PhpStorm+PlantUML完成
+>
+> 流程图可以使用OmniGraffle完成
+>
+> 思维导图可以使用Xmind
+
+
 
