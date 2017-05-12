@@ -76,3 +76,7 @@
 
 [http://apizza.cc/](http://apizza.cc/) 也是一款线上的api协作工具
 
+**6.设计稿标注API**
+
+对于App在哪个界面调用哪个API进行标注 , 在设计稿中.
+
