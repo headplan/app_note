@@ -10,7 +10,7 @@
     * [接口设计要点](基础/jie-kou-she-ji-yao-dian.md)
     * [数据库的选择](基础/shu-ju-ku-de-xuan-ze.md)
     * [消息队列软件](基础/xiao-xi-dui-lie-ruan-jian.md)
-    * 分布式业务复用
+    * [分布式业务复用](基础/fen-bu-shi-ye-wu-fu-yong.md)
     * 搜索相关技术
     * [定时任务](基础/ding-shi-ren-wu.md)
   * [核心](核心.md)
