@@ -7,7 +7,7 @@
     * [App的开发模式](入门/appde-kai-fa-mo-shi.md)
   * [基础](基础.md)
     * [逻辑提炼接口](基础/luo-ji-ti-lian-jie-kou.md)
-    * 接口设计要点
+    * [接口设计要点](基础/jie-kou-she-ji-yao-dian.md)
     * 数据库的选择
     * 消息队列软件
     * 分布式业务复用
