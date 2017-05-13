@@ -8,7 +8,7 @@
   * [基础](基础.md)
     * [逻辑提炼接口](基础/luo-ji-ti-lian-jie-kou.md)
     * [接口设计要点](基础/jie-kou-she-ji-yao-dian.md)
-    * 数据库的选择
+    * [数据库的选择](基础/shu-ju-ku-de-xuan-ze.md)
     * 消息队列软件
     * 分布式业务复用
     * 搜索相关技术
