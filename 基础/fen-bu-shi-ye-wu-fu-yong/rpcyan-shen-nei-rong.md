@@ -42,5 +42,30 @@ RPC（远程过程调用）采用客户机/服务器模式实现两个进程之�
 
 > 查看下篇内容 , 细说socket .
 
+#### RPC框架 - PHP
+
+PHPRPC\(hprose\) - 轻量级框架
+
+* http://www.phprpc.org/
+* https://github.com/hprose/hprose-php
+
+yar - 鸟哥开发的
+
+thrift - facebook的,贡献给apache了 , http://thrift.apache.org/
+
+gRPC - http://www.grpc.io/
+
+swoole - PHP的异步、并行、高性能网络通信引擎 , http://www.swoole.com/
+
+还有阿里巴巴开源的Dubbo和当当网扩展的Dubbox , java的
+
+
+
+
+
+
+
+
+
 
 

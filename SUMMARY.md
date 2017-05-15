@@ -12,6 +12,8 @@
     * [消息队列软件](基础/xiao-xi-dui-lie-ruan-jian.md)
     * [分布式业务复用](基础/fen-bu-shi-ye-wu-fu-yong.md)
       * [RPC延伸内容](基础/fen-bu-shi-ye-wu-fu-yong/rpcyan-shen-nei-rong.md)
+        * [PHPRPC](基础/fen-bu-shi-ye-wu-fu-yong/rpcyan-shen-nei-rong/phprpc.md)
+      * [Socket](基础/fen-bu-shi-ye-wu-fu-yong/socket.md)
     * 搜索相关技术
     * [定时任务](基础/ding-shi-ren-wu.md)
   * [核心](核心.md)
