@@ -14,7 +14,7 @@
       * [RPC延伸内容](基础/fen-bu-shi-ye-wu-fu-yong/rpcyan-shen-nei-rong.md)
         * [PHPRPC](基础/fen-bu-shi-ye-wu-fu-yong/rpcyan-shen-nei-rong/phprpc.md)
       * [Socket](基础/fen-bu-shi-ye-wu-fu-yong/socket.md)
-    * 搜索相关技术
+    * [搜索相关技术](基础/sou-suo-xiang-guan-ji-zhu.md)
     * [定时任务](基础/ding-shi-ren-wu.md)
   * [核心](核心.md)
     * 用户验证方案
