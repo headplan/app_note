@@ -29,6 +29,7 @@ crontab [-u username] [-l|-e|-r]
 crontab命令是分级的 , 要执行秒级命令 , 可以这样写
 
 ```
+# 每20秒执行一次命令
 * * * * * cmd
 * * * * * sleep 20; cmd
 * * * * * sleep 40; cmd
