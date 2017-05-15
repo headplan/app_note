@@ -10,7 +10,7 @@ RPC远程调用框架 - Remote Procedure Call
 
 **远程调用原理**
 
-比如A\(client\)调用B\(server\)提供的remoteAdd方法 : 
+比如A\(client\)调用B\(server\)提供的remoteAdd方法 :
 
 1. 首先A与B之间建立一个TCP
 2. 然后A把需要调用的方法名\(这里是remoteAdd\)以及方法参数\(10, 20\)序列化成字节流发送出去
@@ -19,7 +19,11 @@ RPC远程调用框架 - Remote Procedure Call
 
 4. A接受远程调用结果 , 输出结果
 
-RPC框架就是把上面的几点些细节封装起来 , 给用户暴露简单友好的API使用 . 
+RPC框架就是把上面的几点些细节封装起来 , 给用户暴露简单友好的API使用 .
+
+**远程调用的好处**
+
+解耦 , 当server需要对方法内实现修改时 , client完全感知不到 , 不用做任何变更 . 这种方式在跨部门 , 跨公司合作的时候经常用到 .
 
 
 
