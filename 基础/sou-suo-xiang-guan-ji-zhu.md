@@ -40,6 +40,8 @@ RESTful Web接口 . Java开发 , Apache许可条款下开源 .
 
 **CoreSeek的工作流程**
 
+![](/assets/coreseek.png)
+
 1. Indexer模块从MySQL中拉取数据
 2. Indexer模块用经过中文分词后的数据建立索引
 3. 客户端向Search模块发起搜索请求
