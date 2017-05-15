@@ -39,7 +39,7 @@ crontab命令是分级的 , 要执行秒级命令 , 可以这样写
 
 Java下的Quartz
 
-Python下的APScheduler , 他是基于上面的Python写的定时框架 , 实现了Quartz的所有功能 . 
+Python下的APScheduler , 他是基于上面的Python写的定时框架 , 实现了Quartz的所有功能 .
 
 * 通过RAM,MySQL,MongoDB文件 , 持久化存储定时任务
 * 支持秒级定时任务
@@ -47,21 +47,37 @@ Python下的APScheduler , 他是基于上面的Python写的定时框架 , 实现
 
 **APScheduler安装**
 
-使用easy\_install安装 :  
+使用easy\_install安装 :
 
 ```
 easy_install apscheduler
 ```
 
-源码安装 : 
+源码安装 :
 
 ```
 Python setup.py install
 ```
 
+创建一个定时三秒运行一次的定时任务 : 
 
+```
+from datetime import datetime
+import time
+from apscheduler.scheduler import Scheduler
 
-
+def tick();
+    print('Tick! The time is: %s' % datetime.now())
+    
+if __name__ == '__main__':
+    scheduler = Scheduler()
+    scheduler.add_interval_job(tick, seconds=3)
+    print('Press Ctrl+C to exit')
+    scheduler.start()
+    while True:
+        print('This is the main thread.')
+        time.sleep(2)
+```
 
 
 
