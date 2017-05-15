@@ -25,5 +25,18 @@ RPC框架就是把上面的几点些细节封装起来 , 给用户暴露简单�
 
 解耦 , 当server需要对方法内实现修改时 , client完全感知不到 , 不用做任何变更 . 这种方式在跨部门 , 跨公司合作的时候经常用到 .
 
+#### RPC与REST的区别
+
+两者都是client/server模式 . 
+
+REST API 和 RPC 都是在`Server端`把一个个函数封装成接口暴露出去 , 以供`Client端`调用 . 
+
+* REST API 是基于`HTTP协议`的 , REST致力于通过http协议中的POST/GET/PUT/DELETE等方法和一个可读性强的URL来提供一个http请求 . 
+* RPC可以不基于HTTP协议 , 如果是两种后端语言的交互 , 用 RPC 可以获得更好的性能 , 省去了HTTP报头等一系列东西 , 也更容易配置 . 
+
+> 果是前端通过 AJAX 调用后端 , 那么用 REST API 的形式比较好 .
+
+
+
 
 
