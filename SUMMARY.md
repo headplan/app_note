@@ -29,7 +29,10 @@
     * ELK日志分析平台
     * Docker构建一致的开发流程
 * [App后台常用服务](apphou-tai-chang-yong-fu-wu.md)
-  * Linux
+  * [Linux](apphou-tai-chang-yong-fu-wu/linux.md)
+    * [基本的系统优化](apphou-tai-chang-yong-fu-wu/linux/ji-ben-de-xi-tong-you-hua.md)
+    * 常用的命令
+    * 故障分析案例
   * Nginx
   * MySQL
   * Redis
