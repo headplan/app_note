@@ -31,9 +31,9 @@
 * [App后台常用服务](apphou-tai-chang-yong-fu-wu.md)
   * [Linux](apphou-tai-chang-yong-fu-wu/linux.md)
     * [基本的系统优化](apphou-tai-chang-yong-fu-wu/linux/ji-ben-de-xi-tong-you-hua.md)
-    * 常用的命令
+    * [常用的命令](apphou-tai-chang-yong-fu-wu/linux/chang-yong-de-ming-ling.md)
     * 故障分析案例
-  * Nginx
+  * [Nginx](apphou-tai-chang-yong-fu-wu/nginx.md)
   * MySQL
   * Redis
   * MongoDB
