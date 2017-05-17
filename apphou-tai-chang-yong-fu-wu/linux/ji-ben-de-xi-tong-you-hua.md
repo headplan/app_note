@@ -18,5 +18,38 @@ Linux启动时会首先启动一个称为init的进程 , 然后由其来启动�
 
 chkconfig命令主要用来更新和查询系统服务的运行级信息 . 
 
+语法 : 
+
+chkconfig \[--add\] \[--del\] \[--list\] \[系统服务\]
+
+--add : 添加系统服务
+
+--del : 删除系统服务
+
+--list : 显示所有运行级系统服务的运行状态信息
+
+如果需要更新当前系统服务的运行级别时 , 使用下面的命令 : 
+
+chkconfig \[--level &lt;等级代号&gt;\] \[系统服务\] \[on/off/reset\]
+
+--level : 服务的等级
+
+--on : 开启系统服务
+
+--off : 关闭系统服务
+
+--reset : 重置系统服务
+
+例如 : 
+
+1. 把Nginx的启动脚本放在/etc/init.d/目录下 , 完整的路径为/etc/init.d/nginx
+2. 在Nginx加入系统服务
+   chkconfig --add nginx
+
+3. 修改Nginx服务的运行级别  
+   chkconfig --level 35 nginx on
+
 #### 增大文件描述符
+
+
 
