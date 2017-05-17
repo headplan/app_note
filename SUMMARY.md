@@ -35,7 +35,7 @@
     * 故障分析案例
   * [Nginx](apphou-tai-chang-yong-fu-wu/nginx.md)
     * [常用配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi.md)
-  * MySQL
+  * [MySQL](apphou-tai-chang-yong-fu-wu/mysql.md)
   * Redis
   * MongoDB
 * App后台架构
