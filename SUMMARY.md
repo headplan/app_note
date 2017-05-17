@@ -35,8 +35,13 @@
     * 故障分析案例
   * [Nginx](apphou-tai-chang-yong-fu-wu/nginx.md)
     * [常用配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi.md)
-  * [MySQL](apphou-tai-chang-yong-fu-wu/mysql.md)
   * Redis
+  * [MySQL](apphou-tai-chang-yong-fu-wu/mysql.md)
+    * 基本架构
+    * 配置文件详解
+    * 优化\(软件,硬件,架构\)
+    * SQL慢查询分析
+    * 云数据库简介
   * MongoDB
 * App后台架构
   * 剖析
