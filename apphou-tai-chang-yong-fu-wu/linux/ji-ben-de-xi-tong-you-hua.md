@@ -53,15 +53,15 @@ chkconfig \[--level &lt;等级代号&gt;\] \[系统服务\] \[on/off/reset\]
 
 对Linux内核来说 , 所有打开的文件都通过文件描述符引用 . Linux系统中经常出现的错误 ,
 
-Too many open files 就是由于打开的文件数超过了文件描述符的限制导致 . 
+Too many open files 就是由于打开的文件数超过了文件描述符的限制导致 .
 
-查询系统文件描述符大小的命令 : 
+查询系统文件描述符大小的命令 :
 
 ```
 ulimit -n
 ```
 
-修改方法 : 
+修改方法 :
 
 1. 只对当前Session有效的修改方法
    ```
@@ -69,12 +69,18 @@ ulimit -n
    ulimit -n
    ```
 2. 修改配置文件 , 永久生效  
-   `在/etc/security/limits.conf中加入  
-   * - nofile 65535`  
+   ```
+   # 在/etc/security/limits.conf中加入
+   * - nofile 65535  
+   ```
+
    内核参数对文件描述符也有限制 , 如果设置的值大于内核的限制也是不行的 , 查看内核参数中文件描述符的值 :   
-   `sysctl -a | grep file-max  
-   fs.file-max = 1024  
-   `
+   ```
+   sysctl -a | grep file-max
+   fs.file-max = 1024
+   ```
+
+   修改内核参数中文件描述符的值
 
 
 
