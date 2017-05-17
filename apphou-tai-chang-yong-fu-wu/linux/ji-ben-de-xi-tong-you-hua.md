@@ -82,7 +82,8 @@ ulimit -n
    fs.file-max = 1024
    ```
 
-   修改内核参数中文件描述符的值sysctl -w fs.file-max=65535
+   修改内核参数中文件描述符的值  
+   sysctl -w fs.file-max=65535
 
 
 
