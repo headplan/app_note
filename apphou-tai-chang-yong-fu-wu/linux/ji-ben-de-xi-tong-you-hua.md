@@ -16,9 +16,9 @@ Linux启动时会首先启动一个称为init的进程 , 然后由其来启动�
 
 可以用runlevel查看当前运行的级别 , 但这个命令只能在root下运行 .
 
-chkconfig命令主要用来更新和查询系统服务的运行级信息 . 
+chkconfig命令主要用来更新和查询系统服务的运行级信息 .
 
-语法 : 
+语法 :
 
 chkconfig \[--add\] \[--del\] \[--list\] \[系统服务\]
 
@@ -28,7 +28,7 @@ chkconfig \[--add\] \[--del\] \[--list\] \[系统服务\]
 
 --list : 显示所有运行级系统服务的运行状态信息
 
-如果需要更新当前系统服务的运行级别时 , 使用下面的命令 : 
+如果需要更新当前系统服务的运行级别时 , 使用下面的命令 :
 
 chkconfig \[--level &lt;等级代号&gt;\] \[系统服务\] \[on/off/reset\]
 
@@ -40,16 +40,20 @@ chkconfig \[--level &lt;等级代号&gt;\] \[系统服务\] \[on/off/reset\]
 
 --reset : 重置系统服务
 
-例如 : 
+例如 :
 
 1. 把Nginx的启动脚本放在/etc/init.d/目录下 , 完整的路径为/etc/init.d/nginx
-2. 在Nginx加入系统服务
+2. 在Nginx加入系统服务  
    chkconfig --add nginx
 
 3. 修改Nginx服务的运行级别  
    chkconfig --level 35 nginx on
 
 #### 增大文件描述符
+
+对Linux内核来说 , 所有打开的文件都通过文件描述符引用 . Linux系统中经常出现的错误 , 
+
+Too many open files 就是由于打开的文件数超过了文件描述符的限制导致 . 
 
 
 
