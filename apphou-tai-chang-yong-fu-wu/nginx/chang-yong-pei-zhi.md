@@ -35,6 +35,23 @@ worker_rlimit_nofile 52000;
 
 #### event配置
 
+```
+events
+{
+    use epoll;
+    work_connections 51200;
+}
+```
+
+* use - 指定Nginx的工作模式 , 前面已经提过 , epoll是首选 , FreeBSD下kqueue是首选
+  * select
+  * poll
+  * kqueue
+  * epoll
+  * rtsig
+  * /dev/poll
+* worker_connections - 定义每个worker pricess的最大连接数 , 默认1024 . 这里的配置也受限于Linux中最多可以打开的文件描述符数限制 . 所以Nginx可以处理的最大连接数为max_\_clients = worker\_processes × worker\_connections
+
 #### http配置
 
 #### 负载均衡配置
