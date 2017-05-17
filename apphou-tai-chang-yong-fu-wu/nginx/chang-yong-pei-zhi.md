@@ -54,6 +54,23 @@ events
 
 #### http配置
 
+```
+http
+{
+    include mime.types;
+    default_type Application/octet-stream;
+    client_header_buffer_size 32k;
+    large_client_header_buffers 4 32k;
+    client_max_body_size 50m;
+    sendfile on;
+    tcp_nopush on;
+    keepalive_timeout 60;
+    tcp_nodelay on;
+    
+    
+}
+```
+
 #### 负载均衡配置
 
 #### server虚拟主机配置
