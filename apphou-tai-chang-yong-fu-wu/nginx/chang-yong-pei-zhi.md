@@ -66,8 +66,16 @@ http
     tcp_nopush on;
     keepalive_timeout 60;
     tcp_nodelay on;
+
+    gzip on;
+    gzip_min_length 1k;
+    gzip_buffers 4 16k;
+    gzip_http_version 1.0;
+    gzip_comp_level 2;
+    gzip_types text/plan Application/x-javascript text/css Application/xml;
+    gzip_vary on;
     
-    
+    include vhost/*.conf;
 }
 ```
 
