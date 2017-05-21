@@ -14,7 +14,9 @@
 
 使用类库替换文字中的表情
 
-
+> https://github.com/iamcal/PHP-emoji
+>
+> https://github.com/newjueqi/converemojitostr
 
 
 
