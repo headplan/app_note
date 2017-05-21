@@ -41,7 +41,7 @@
     * [优化\(软件,硬件,架构\)](apphou-tai-chang-yong-fu-wu/mysql/you-531628-ruan-4ef62c-ying-4ef62c-jia-678429.md)
     * SQL慢查询分析
     * 云数据库简介
-  * Redis
+  * [Redis](apphou-tai-chang-yong-fu-wu/redis.md)
   * MongoDB
 * App后台架构
   * 剖析
