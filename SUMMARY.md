@@ -20,7 +20,7 @@
     * [用户验证方案](核心/yong-hu-yan-zheng-fang-an.md)
     * [App通信安全](核心/apptong-xin-an-quan.md)
     * [短信服务](核心/duan-xin-fu-wu.md)
-    * 处理表情的一些技巧
+    * [处理表情的一些技巧](核心/chu-li-biao-qing-de-yi-xie-ji-qiao.md)
     * 高效更新数据
     * 图片处理
     * 视频处理
