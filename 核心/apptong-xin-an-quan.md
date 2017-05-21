@@ -44,7 +44,42 @@ URL签名的验证流程
 
 #### AES对称加密
 
-同一个密钥可以同时用作信息的加密和解密 , 这种加密方法称之为对称加密 , 也称为单密钥加密 . 
+同一个密钥可以同时用作信息的加密和解密 , 这种加密方法称之为对称加密 , 也称为单密钥加密 . 格式如下
+
+```
+AES加密(data, secretKey)
+```
+
+**加密App后台返回的token数据**
+
+URL签名中的一个缺点是 , 比如登录后的个人信息是明文的 : 
+
+```
+{"userID":5, "name":"headplan", "token":"dafasdfsdafewr"}
+```
+
+后台返回给App用户个人信息的流程是 : 
+
+1. 用户在App登录得到个人信息
+   ```
+   {"userID":5, "name":"headplan", "token":"dafasdfsdafewr"}
+   ```
+2. 根据App后台当前的时间戳 , 生成HTTP请求头
+
+   ```
+   Token-Param: 14234232422
+   ```
+
+3. 把请求头Token-Param的22位长度作为密钥secretKey
+
+4. 用AES算法把个人信息用密钥secretKey加密 , 再进行base64编码 , 最后用HTTPS协议返回给App . 
+
+此时HTTPS协议内容为 : 
+
+* HTTP URL
+* HTTP请求方式
+* HTTP请求头
+* HTTP body - Base64Encode\(AES加密\(个人信息, 请求头Token-Param的22位长度\)\)
 
 
 
