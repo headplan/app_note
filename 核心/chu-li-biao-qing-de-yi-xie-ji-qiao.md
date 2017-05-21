@@ -14,9 +14,15 @@
 
 使用类库替换文字中的表情
 
-> https://github.com/iamcal/PHP-emoji
+> [https://github.com/iamcal/PHP-emoji](https://github.com/iamcal/PHP-emoji)
 >
-> https://github.com/newjueqi/converemojitostr
+> [https://github.com/newjueqi/converemojitostr](https://github.com/newjueqi/converemojitostr)
+
+#### Openfire中发送表情引起连接断开的问题
+
+原因是Openfire源代码中 , 把特殊的表情符号值当成了一个异常抛出 , 所以就会断开 . 
+
+解决方案是把特殊的表情符号值也包含进去 . 
 
 
 
