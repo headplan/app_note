@@ -42,6 +42,12 @@
     * SQL慢查询分析
     * 云数据库简介
   * [Redis](apphou-tai-chang-yong-fu-wu/redis.md)
+    * Redsi的简介
+    * 常用数据结构及应用场景
+    * 内存优化
+    * 集群
+    * 持久化
+    * 故障排除案例
   * MongoDB
 * App后台架构
   * 剖析
