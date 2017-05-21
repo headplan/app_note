@@ -2,7 +2,7 @@
 
 #### 表情在MySQL中的存储
 
-* 升级MySQL到5.5以上 , 字符编码改为utf8mb4\_general_\__ci
+* 升级MySQL到5.5以上 , 字符编码改为utf8mb4\_general\_ci
 * 在MySQL5.1中存储表情的方法 , 把含有表情数据的字段类型变为blob , 二进制存储 , 这是改动最少的情况 . 
 
 
