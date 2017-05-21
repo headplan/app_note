@@ -52,13 +52,13 @@ AES加密(data, secretKey)
 
 **加密App后台返回的token数据**
 
-URL签名中的一个缺点是 , 比如登录后的个人信息是明文的 : 
+URL签名中的一个缺点是 , 比如登录后的个人信息是明文的 :
 
 ```
 {"userID":5, "name":"headplan", "token":"dafasdfsdafewr"}
 ```
 
-后台返回给App用户个人信息的流程是 : 
+后台返回给App用户个人信息的流程是 :
 
 1. 用户在App登录得到个人信息
    ```
@@ -72,14 +72,32 @@ URL签名中的一个缺点是 , 比如登录后的个人信息是明文的 :
 
 3. 把请求头Token-Param的22位长度作为密钥secretKey
 
-4. 用AES算法把个人信息用密钥secretKey加密 , 再进行base64编码 , 最后用HTTPS协议返回给App . 
+4. 用AES算法把个人信息用密钥secretKey加密 , 再进行base64编码 , 最后用HTTPS协议返回给App .
 
-此时HTTPS协议内容为 : 
+此时HTTPS协议内容为 :
 
 * HTTP URL
 * HTTP请求方式
 * HTTP请求头
 * HTTP body - Base64Encode\(AES加密\(个人信息, 请求头Token-Param的22位长度\)\)
+
+最后客户端再解密App后台返回的内容 . 
+
+**加密请求过程中所有的敏感数据**
+
+URL签名的缺点是只能保护token值 , 没法保护其他敏感数据 . 
+
+例如 , 当更新用户昵称时 , 用户数据在传输过程中应该也是被加密的 , AES同时加密了token和用户数据 . 
+
+下面是以加密用户昵称为例子 : 
+
+1. 客户端昵称数据
+2. 客户端中可以得到当前时间戳
+3. 用时间戳生成HTTP请求头Token-Param
+4. 取请求头的22位长度作为密钥1 , 用AES算法把token加密了 , base64编码得到一个新的HTTP请求头Token-Data
+5. 用Token作为密钥2 , 用AES算法把昵称给加密了 , 用密钥2加密 , 在base64编码得到HTTP body
+
+最后发给App后台 , 然后App后台解密 . 
 
 
 
