@@ -43,7 +43,7 @@
     * 云数据库简介
   * [Redis](apphou-tai-chang-yong-fu-wu/redis.md)
     * [Redis的简介](apphou-tai-chang-yong-fu-wu/redis/redside-jian-jie.md)
-    * 常用数据结构及应用场景
+    * [常用数据结构及应用场景](apphou-tai-chang-yong-fu-wu/redis/chang-yong-shu-ju-jie-gou-ji-ying-yong-chang-jing.md)
     * 内存优化
     * 集群
     * 持久化
