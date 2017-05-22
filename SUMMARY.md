@@ -42,7 +42,7 @@
     * SQL慢查询分析
     * 云数据库简介
   * [Redis](apphou-tai-chang-yong-fu-wu/redis.md)
-    * Redsi的简介
+    * [Redis的简介](apphou-tai-chang-yong-fu-wu/redis/redside-jian-jie.md)
     * 常用数据结构及应用场景
     * 内存优化
     * 集群
