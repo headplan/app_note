@@ -45,7 +45,7 @@
     * [Redis的简介](apphou-tai-chang-yong-fu-wu/redis/redside-jian-jie.md)
     * [常用数据结构及应用场景](apphou-tai-chang-yong-fu-wu/redis/chang-yong-shu-ju-jie-gou-ji-ying-yong-chang-jing.md)
       * [string:存储简单的数据](apphou-tai-chang-yong-fu-wu/redis/chang-yong-shu-ju-jie-gou-ji-ying-yong-chang-jing/stringcun-chu-jian-dan-de-shu-ju.md)
-      * hash:存储对象的数据
+      * [hash:存储对象的数据](apphou-tai-chang-yong-fu-wu/redis/chang-yong-shu-ju-jie-gou-ji-ying-yong-chang-jing/hashcun-chu-dui-xiang-de-shu-ju.md)
       * list:模拟队列操作
       * set:无序且不重复的元素集合
       * sorted set:有序且不重复的元素集合
