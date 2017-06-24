@@ -74,7 +74,7 @@ http
     gzip_comp_level 2;
     gzip_types text/plan Application/x-javascript text/css Application/xml;
     gzip_vary on;
-    
+
     include vhost/*.conf;
 }
 ```
