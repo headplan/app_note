@@ -21,13 +21,13 @@
     * [App通信安全](核心/apptong-xin-an-quan.md)
     * [短信服务](核心/duan-xin-fu-wu.md)
     * [处理表情的一些技巧](核心/chu-li-biao-qing-de-yi-xie-ji-qiao.md)
-    * 高效更新数据
-    * 图片处理
-    * 视频处理
-    * 获取APK和IPA文件里的资源
+    * [高效更新数据](核心/gao-xiao-geng-xin-shu-ju.md)
+    * [图片处理](核心/tu-pian-chu-li.md)
+    * [视频处理](核心/shi-pin-chu-li.md)
+    * [获取APK和IPA文件里的资源](核心/huo-qu-apk-he-ipa-wen-jian-li-de-zi-yuan.md)
     * 文件系统
-    * ELK日志分析平台
-    * Docker构建一致的开发流程
+    * [ELK日志分析平台](核心/elkri-zhi-fen-xi-ping-tai.md)
+    * [Docker构建一致的开发流程](核心/dockergou-jian-yi-zhi-de-kai-fa-liu-cheng.md)
 * [App后台常用服务](apphou-tai-chang-yong-fu-wu.md)
   * [Linux](apphou-tai-chang-yong-fu-wu/linux.md)
     * [基本的系统优化](apphou-tai-chang-yong-fu-wu/linux/ji-ben-de-xi-tong-you-hua.md)
@@ -35,6 +35,7 @@
     * 故障分析案例
   * [Nginx](apphou-tai-chang-yong-fu-wu/nginx.md)
     * [常用配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi.md)
+    * [配置用例](apphou-tai-chang-yong-fu-wu/nginx/pei-zhi-yong-li.md)
   * [MySQL](apphou-tai-chang-yong-fu-wu/mysql.md)
     * [基本架构](apphou-tai-chang-yong-fu-wu/mysql/ji-ben-jia-gou.md)
     * [配置文件详解](apphou-tai-chang-yong-fu-wu/mysql/pei-zhi-wen-jian-xiang-jie.md)
@@ -46,7 +47,7 @@
     * [常用数据结构及应用场景](apphou-tai-chang-yong-fu-wu/redis/chang-yong-shu-ju-jie-gou-ji-ying-yong-chang-jing.md)
       * [string:存储简单的数据](apphou-tai-chang-yong-fu-wu/redis/chang-yong-shu-ju-jie-gou-ji-ying-yong-chang-jing/stringcun-chu-jian-dan-de-shu-ju.md)
       * [hash:存储对象的数据](apphou-tai-chang-yong-fu-wu/redis/chang-yong-shu-ju-jie-gou-ji-ying-yong-chang-jing/hashcun-chu-dui-xiang-de-shu-ju.md)
-      * list:模拟队列操作
+      * [list:模拟队列操作](apphou-tai-chang-yong-fu-wu/redis/chang-yong-shu-ju-jie-gou-ji-ying-yong-chang-jing/listmo-ni-dui-lie-cao-zuo.md)
       * set:无序且不重复的元素集合
       * sorted set:有序且不重复的元素集合
     * 内存优化
