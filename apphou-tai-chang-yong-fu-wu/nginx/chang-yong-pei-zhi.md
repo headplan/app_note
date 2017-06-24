@@ -40,6 +40,7 @@ events
 {
     use epoll;
     work_connections 51200;
+    multi_accept on;
 }
 ```
 
@@ -51,6 +52,7 @@ events
   * rtsig
   * /dev/poll
 * worker\__connections - 定义每个worker pricess的最大连接数 , 默认1024 . 这里的配置也受限于Linux中最多可以打开的文件描述符数限制 . 所以Nginx可以处理的最大连接数为max_\_clients = worker\_processes × worker\_connections
+* multi\_accept - 设置Nginx是否允许,在已经得到一个新连接的通知时,接收尽可能更多的连接 . 
 
 #### http配置
 
@@ -78,6 +80,12 @@ http
     include vhost/*.conf;
 }
 ```
+
+* include - 包含其他的配置文件 , 一般是mime.types一个文件类型的列表 , 和nginx.conf配置文件同级目录下
+* default\_type - 默认类型application/octet-stream;二进制流格式 . 意思是当文件类型未定义时 , 使用二进制流的格式.
+* server\_
+
+#### 
 
 #### 负载均衡配置
 
