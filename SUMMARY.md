@@ -35,6 +35,7 @@
     * 故障分析案例
   * [Nginx](apphou-tai-chang-yong-fu-wu/nginx.md)
     * [常用配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi.md)
+      * [fastcgi模块](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/fastcgimo-kuai.md)
     * [配置用例](apphou-tai-chang-yong-fu-wu/nginx/pei-zhi-yong-li.md)
   * [MySQL](apphou-tai-chang-yong-fu-wu/mysql.md)
     * [基本架构](apphou-tai-chang-yong-fu-wu/mysql/ji-ben-jia-gou.md)
