@@ -44,7 +44,12 @@ http {
   fastcgi_busy_buffers_size 128k;
   fastcgi_temp_file_write_size 128k;
   fastcgi_intercept_errors on;
-  
+  # 开启fastcgi缓存
+  fastcgi_cache TEST; 
+  fastcgi_cache_valid 200 302 1h; 
+  fastcgi_cache_valid 301 1d; 
+  fastcgi_cache_valid any 1m;
+
   # gzip模块配置
   gzip on;
   gzip_buffers 16 8k;
