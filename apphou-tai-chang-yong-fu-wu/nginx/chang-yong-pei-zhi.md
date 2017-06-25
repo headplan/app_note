@@ -210,14 +210,6 @@ open_file_cache_errors on;
 * open\_file\_cache\_min\_uses - open\_file\_cache指令中的inactive参数时间内文件的最少使用次数 , 如果超过这个数字 , 文件描述符一直是在缓存中打开的 , 如上例 , 如果有一个文件在inactive时间内一次没被使用 , 它将被移除 . 
 * open\_file\_cache\_errors - 指定是否在搜索一个文件时记录cache错误 . 
 
-#### 负载均衡配置
-
-#### server虚拟主机配置
-
-#### location配置
-
-#### HTTPS的配置
-
 #### 下载App的配置
 
 #### 生产环境中修改配置的良好习惯
