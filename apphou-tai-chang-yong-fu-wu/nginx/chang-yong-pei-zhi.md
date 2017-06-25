@@ -177,7 +177,7 @@ gzip_vary on; # 是否让前端缓存缓存服务器缓存压缩后的GZIP文件
 
 > **gzip\_proxied**
 >
-> Nginx做为反向代理的时候启用 , 参数 : 
+> Nginx做为反向代理的时候启用 , 参数 :
 >
 > param:off\|expired\|no-cache\|no-sotre\|private\|no\_last\_modified\|no\_etag\|auth\|any\]
 >
@@ -192,6 +192,9 @@ gzip_vary on; # 是否让前端缓存缓存服务器缓存压缩后的GZIP文件
 > * no\_etag – 启用压缩，如果header中包含“ETag”头信息
 > * auth – 启用压缩，如果header中包含“Authorization”头信息
 > * any – 无条件压缩所有结果数据
+>
+> **gzip\_disable "MSIE \[1-6\]\.\(?!.\*SV1\)";**
+> 由于IE6及以下版本对Gzip的支持不够完善 , 且可能造成浏览器的假死 , 因而通常禁用IE6以下的Gzip压缩功能 .
 
 #### 负载均衡配置
 
