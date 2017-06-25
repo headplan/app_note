@@ -69,6 +69,8 @@ http
     keepalive_timeout 60;
     tcp_nodelay on;
     server_tokens off;
+    
+    # autoindex on;
 
     # fastgci模块优化
 
@@ -99,12 +101,60 @@ http
 * tcp\_nodelay - 仅在sendfile开启时有效 . 告诉nginx不要缓存数据 , 而是一段一段的发送 , 当需要及时发送数据时 . 
 * keepalive\_timeout - 设置客户端保持活动连接的时间 . 超时服务器会关闭连接 . 
 * server\_tokens - 建议off , 这里是关闭返回Nginx的版本信息 . 
+* autoindex  - 开启目录列表访问 , 合适下载服务器 , 默认关闭 . 
 
 > **fastcgi模块参考下一篇文章**
 
-**补充内容**
+**补充说明内容**
 
+> **这些内容是前面提到过的配置的解释说明帮助理解**
 
+```
+#指定进程可以打开的最大描述符：数目
+#工作模式与连接数上限
+#这个指令是指当一个nginx进程打开的最多文件描述符数目，理论值应该是最多打开文件数（ulimit -n）与nginx进程数相除，但是nginx分配请求并不是那么均匀，所以最好与ulimit -n 的值保持一致。
+#现在在linux 2.6内核下开启文件打开数为65535，worker_rlimit_nofile就相应应该填写65535。
+#这是因为nginx调度时分配请求到进程并不是那么的均衡，所以假如填写10240，总并发量达到3-4万时就有进程可能超过10240了，这时会返回502错误。
+
+worker_rlimit_nofile 65535;
+
+#单个进程最大连接数（最大连接数=连接数*进程数）
+#根据硬件调整，和前面工作进程配合起来用，尽量大，但是别把cpu跑到100%就行。每个进程允许的最多连接数，理论上每台nginx服务器的最大连接数为。
+
+worker_connections 65535;
+
+===================================
+
+#客户端请求头部的缓冲区大小。这个可以根据你的系统分页大小来设置，一般一个请求头的大小不会超过1k，不过由于一般系统分页都要大于1k，所以这里设置为分页大小。
+#分页大小可以用命令getconf PAGESIZE 取得。
+#[root@web001 ~]# getconf PAGESIZE
+#4096
+#但也有client_header_buffer_size超过4k的情况，但是client_header_buffer_size该值必须设置为“系统分页大小”的整倍数。
+
+client_header_buffer_size 4k;
+
+#服务器名字的hash表大小
+#保存服务器名字的hash表是由指令server_names_hash_max_size 和server_names_hash_bucket_size所控制的。参数hash bucket size总是等于hash表的大小，并且是一路处理器缓存大小的倍数。在减少了在内存中的存取次数后，使在处理器中加速查找hash表键值成为可能。如果hash bucket size等于一路处理器缓存的大小，那么在查找键的时候，最坏的情况下在内存中查找的次数为2。第一次是确定存储单元的地址，第二次是在存储单元中查找键 值。因此，如果Nginx给出需要增大hash max size 或 hash bucket size的提示，那么首要的是增大前一个参数的大小.
+    
+server_names_hash_bucket_size 128;
+
+#客户端请求头部的缓冲区大小。这个可以根据你的系统分页大小来设置，一般一个请求的头部大小不会超过1k，不过由于一般系统分页都要大于1k，所以这里设置为分页大小。分页大小可以用命令getconf PAGESIZE取得。
+
+client_header_buffer_size 32k;
+
+#客户请求头缓冲大小。nginx默认会用client_header_buffer_size这个buffer来读取header值，如果header过大，它会使用large_client_header_buffers来读取。
+
+large_client_header_buffers 4 64k;
+
+#设定通过nginx上传文件的大小
+
+client_max_body_size 8m;
+
+#开启高效文件传输模式，sendfile指令指定nginx是否调用sendfile函数来输出文件，对于普通应用设为 on，如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络I/O处理速度，降低系统的负载。注意：如果图片显示不正常把这个改成off。
+#sendfile指令指定 nginx 是否调用sendfile 函数（zero copy 方式）来输出文件，对于普通应用，必须设为on。如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络IO处理速度，降低系统uptime。
+
+sendfile on;
+```
 
 #### 负载均衡配置
 
