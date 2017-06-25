@@ -95,6 +95,7 @@ http
 * tcp\_nopush - 仅在sendfile开启时有效 , 主要防止网络堵塞 . 告诉Nginx在一个数据包里发送所有头文件 , 而不一个接一个的发送 . 
 * tcp\_nodelay - 仅在sendfile开启时有效 . 告诉nginx不要缓存数据 , 而是一段一段的发送 , 当需要及时发送数据时 . 
 * keepalive\_timeout - 设置客户端保持活动连接的时间 . 超时服务器会关闭连接 . 
+* server\_tokens - 建议off , 这里是关闭返回Nginx的版本信息 . 
 
 #### 负载均衡配置
 
