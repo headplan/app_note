@@ -76,6 +76,8 @@ http {
   open_file_cache_min_uses 2;
   open_file_cache_errors on;
 
+  # 负载均衡配置
+
   # ===== Defaule Server =====
   server {
 
