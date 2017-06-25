@@ -113,5 +113,9 @@ fastcgi_cache_valid any 1m;
 * fastcgi\_cache - 表示开启FastCGI缓存并为其指定一个名称。开启缓存非常有用，可以有效降低CPU的负载，并且防止502错误的发生，但是开启缓存也会引起很多问题，要视具体情况而定。
 * fastcgi\_cache\_valid - fastcgi用来指定应答代码的缓存时间，实例中的值表示将200和302应答缓存一个小时，将301应答缓存1天，其他应答均缓存1分钟。
 
+更多配置参考
+
+http://blog.csdn.net/bytxl/article/details/18841695
+
 
 
