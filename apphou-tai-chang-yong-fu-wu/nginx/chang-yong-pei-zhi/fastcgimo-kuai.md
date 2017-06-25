@@ -103,15 +103,15 @@ fastcgi_cache_valid any 1m;
 ```
 
 * fastcgi\_cache\_path - 第一行代码是为FastCGI缓存指定一个文件路径、目录结构等级、关键字区域存储时间和非活动删除时间。
-* fastcgi\_connect\_timeout指定连接到后端FastCGI的超时时间。
-* fastcgi\_send\_timeout指定向FastCGI传送请求的超时时间，这个值是已经完成两次握手后向FastCGI传送请求的超时时间。
-* fastcgi\_read\_timeout指定接收FastCGI应答的超时时间，这个值是已经完成两次握手后接收FastCGI应答的超时时间。
-* fastcgi\_buffer\_size用于指定读取FastCGI应答第一部分需要用多大的缓冲区，这个值表示将使用1个64KB的缓冲区读取应答的第一部分（应答头），可以设置为fastcgi\_buffers选项指定的缓冲区大小。
-* fastcgi\_buffers指定本地需要用多少和多大的缓冲区来缓冲FastCGI的应答请求。如果一个PHP脚本所产生的页面大小为256KB，那么会为其分配4个64KB的缓冲区来缓存；如果页面大小大于256KB，那么大于256KB的部分会缓存到fastcgi\_temp指定的路径中，但是这并不是好方法，因为内存中的数据处理速度要快于硬盘。一般这个值应该为站点中PHP脚本所产生的页面大小的中间值，如果站点大部分脚本所产生的页面大小为256KB，那么可以把这个值设置为“16 16k”、“4 64k”等。
-* fastcgi\_busy\_buffers\_size的默认值是fastcgi\_buffers的两倍。
-* fastcgi\_temp\_file\_write\_size表示在写入缓存文件时使用多大的数据块，默认值是fastcgi\_buffers的两倍。
-* fastcgi\_cache表示开启FastCGI缓存并为其指定一个名称。开启缓存非常有用，可以有效降低CPU的负载，并且防止502错误的发生，但是开启缓存也会引起很多问题，要视具体情况而定。
-* fastcgi\_cache\_valid、fastcgi用来指定应答代码的缓存时间，实例中的值表示将200和302应答缓存一个小时，将301应答缓存1天，其他应答均缓存1分钟。
+* fastcgi\_connect\_timeout - 指定连接到后端FastCGI的超时时间。
+* fastcgi\_send\_timeout - 指定向FastCGI传送请求的超时时间，这个值是已经完成两次握手后向FastCGI传送请求的超时时间。
+* fastcgi\_read\_timeout - 指定接收FastCGI应答的超时时间，这个值是已经完成两次握手后接收FastCGI应答的超时时间。
+* fastcgi\_buffer\_size - 用于指定读取FastCGI应答第一部分需要用多大的缓冲区，这个值表示将使用1个64KB的缓冲区读取应答的第一部分（应答头），可以设置为fastcgi\_buffers选项指定的缓冲区大小。
+* fastcgi\_buffers - 指定本地需要用多少和多大的缓冲区来缓冲FastCGI的应答请求。如果一个PHP脚本所产生的页面大小为256KB，那么会为其分配4个64KB的缓冲区来缓存；如果页面大小大于256KB，那么大于256KB的部分会缓存到fastcgi\_temp指定的路径中，但是这并不是好方法，因为内存中的数据处理速度要快于硬盘。一般这个值应该为站点中PHP脚本所产生的页面大小的中间值，如果站点大部分脚本所产生的页面大小为256KB，那么可以把这个值设置为“16 16k”、“4 64k”等。
+* fastcgi\_busy\_buffers\_size - 默认值是fastcgi\_buffers的两倍。
+* fastcgi\_temp\_file\_write\_size - 表示在写入缓存文件时使用多大的数据块，默认值是fastcgi\_buffers的两倍。
+* fastcgi\_cache - 表示开启FastCGI缓存并为其指定一个名称。开启缓存非常有用，可以有效降低CPU的负载，并且防止502错误的发生，但是开启缓存也会引起很多问题，要视具体情况而定。
+* fastcgi\_cache\_valid - fastcgi用来指定应答代码的缓存时间，实例中的值表示将200和302应答缓存一个小时，将301应答缓存1天，其他应答均缓存1分钟。
 
 
 
