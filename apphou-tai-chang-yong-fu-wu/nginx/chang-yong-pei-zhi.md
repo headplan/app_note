@@ -70,6 +70,8 @@ http
     tcp_nodelay on;
     server_tokens off;
 
+    # fastgci模块优化
+
     gzip on;
     gzip_min_length 1k;
     gzip_buffers 4 16k;
@@ -97,6 +99,10 @@ http
 * tcp\_nodelay - 仅在sendfile开启时有效 . 告诉nginx不要缓存数据 , 而是一段一段的发送 , 当需要及时发送数据时 . 
 * keepalive\_timeout - 设置客户端保持活动连接的时间 . 超时服务器会关闭连接 . 
 * server\_tokens - 建议off , 这里是关闭返回Nginx的版本信息 . 
+
+> **fastcgi模块参考下一篇文章**
+
+
 
 #### 负载均衡配置
 
