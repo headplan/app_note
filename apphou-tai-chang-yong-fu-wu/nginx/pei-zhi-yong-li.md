@@ -4,7 +4,8 @@
 
 ```
 user www www; # 工作进程运行的用户及用户组
-worker_processes auto; # 开启的工作进程数
+worker_processes auto; # 开启的工作进程数,建议设置为等于CPU总核心数
+# [ debug | info | notice | warn | error | crit ]
 error_log logs/error.log crit; # 全局错误日志输出位置以及级别
 pid logs/nginx.pid # 存储Nginx进程id的文件路径
 worker_rlimit_nofile 51200; # 一个进程打开文件数限制,但受Linux的此参数限制
@@ -20,6 +21,7 @@ events {
 http {
   include mime.types; # 文件类型
   default_type application/octet-stream; # 默认二进制流
+  # charset utf-8; # 默认编码
 
   # 服务器客户大小以及缓冲器大小配置
   server_names_hash_bucket_size 128;
