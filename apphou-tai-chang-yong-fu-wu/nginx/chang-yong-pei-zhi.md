@@ -193,8 +193,22 @@ gzip_vary on; # 是否让前端缓存缓存服务器缓存压缩后的GZIP文件
 > * auth – 启用压缩，如果header中包含“Authorization”头信息
 > * any – 无条件压缩所有结果数据
 >
-> **gzip\_disable "MSIE \[1-6\]\.\(?!.\*SV1\)";**
+> **gzip\_disable "MSIE \[1-6\].\(?!.\*SV1\)";**  
 > 由于IE6及以下版本对Gzip的支持不够完善 , 且可能造成浏览器的假死 , 因而通常禁用IE6以下的Gzip压缩功能 .
+
+**静态文件缓存配置**
+
+```
+open_file_cache max=100000 inactive=20s;
+open_file_cache_valid 30s;
+open_file_cache_min_uses 2; 
+open_file_cache_errors on;
+```
+
+* open\_file\_cache - 打开缓存的同时也指定了缓存最大数目 , 以及缓存的时间 . 我们可以设置一个相对高的最大时间 , 这样我们可以在它们不活动超过20秒后清除掉
+* open\_file\_cache\_valid - 这个是指多长时间检查一次缓存的有效信息 . 
+* open\_file\_cache\_min\_uses - open\_file\_cache指令中的inactive参数时间内文件的最少使用次数 , 如果超过这个数字 , 文件描述符一直是在缓存中打开的 , 如上例 , 如果有一个文件在inactive时间内一次没被使用 , 它将被移除 . 
+* open\_file\_cache\_errors - 指定是否在搜索一个文件时记录cache错误 . 
 
 #### 负载均衡配置
 
