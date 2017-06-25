@@ -92,7 +92,8 @@ http
 * sendfile - 是否启动高效传输文件的模式 . 
   * sendfile可以让Nginx在传输文件时直接在磁盘和tcp Socket之间传输数据 . 如果这个参数不开启 , 会先在用户空间申请一个buffer缓冲器 , 用read函数把数据从磁盘读到cache , 再从cache读取到用户空间的buffer , 再用write函数把数据从用户空间的buffer写入到内核的buffer , 最后到TCP Socket . 开始这个参数就可以让数据不用经过用户buffer了 . 
     ![](/assets/sendfile.png)
-* tcp\_nopush - 仅在sendfile开启时有效 , 主要防止网络堵塞 . 
+* tcp\_nopush - 仅在sendfile开启时有效 , 主要防止网络堵塞 . 告诉Nginx在一个数据包里发送所有头文件 , 而不一个接一个的发送 . 
+* tcp\_nodelay - 仅在sendfile开启时有效 . 告诉nginx不要缓存数据 , 而是一段一段的发送 , 当需要及时发送数据时 . 
 * keepalive\_timeout - 设置客户端保持活动连接的时间 . 超时服务器会关闭连接 . 
 
 #### 负载均衡配置
