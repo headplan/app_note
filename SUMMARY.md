@@ -36,7 +36,7 @@
   * [Nginx](apphou-tai-chang-yong-fu-wu/nginx.md)
     * [常用配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi.md)
       * [fastcgi模块](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/fastcgimo-kuai.md)
-      * 负载均衡配置
+      * [负载均衡配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/fu-zai-jun-heng-pei-zhi.md)
       * server虚拟主机配置
       * location配置
       * https配置
