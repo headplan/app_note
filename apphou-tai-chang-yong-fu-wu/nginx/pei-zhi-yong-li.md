@@ -34,6 +34,19 @@ http {
   tcp_nodelay on;
   keepalive_timeout 60;
   server_tokens off;
+  
+  # fastcgi模块
+  # gzip模块
+  
+  # 静态文件缓存配置
+  
+  # ===== Defaule Server =====
+  server {
+  
+  }
+  
+  # ===== vhost =====
+  include vhost/*.conf;
 }
 ```
 
