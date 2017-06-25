@@ -83,7 +83,7 @@ http
 
 * include - 包含其他的配置文件 , 一般是mime.types一个文件类型的列表 , 和nginx.conf配置文件同级目录下
 * default\_type - 默认类型application/octet-stream;二进制流格式 . 意思是当文件类型未定义时 , 使用二进制流的格式.
-* server\_
+* server\_names\_hash\_bucket\_size 128;
 
 #### 
 
