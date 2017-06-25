@@ -34,17 +34,45 @@ http {
   tcp_nodelay on;
   keepalive_timeout 60;
   server_tokens off;
+
+  # fastcgi模块配置
+  fastcgi_connect_timeout 300;
+  fastcgi_send_timeout 300;
+  fastcgi_read_timeout 300;
+  fastcgi_buffer_size 64k;
+  fastcgi_buffers 4 64k;
+  fastcgi_busy_buffers_size 128k;
+  fastcgi_temp_file_write_size 128k;
+  fastcgi_intercept_errors on;
   
-  # fastcgi模块
-  # gzip模块
-  
+  # gzip模块配置
+  gzip on;
+  gzip_buffers 16 8k;
+  gzip_comp_level 6;
+  gzip_http_version 1.1;
+  gzip_min_length 256;
+  gzip_proxied any;
+  gzip_vary on;
+  gzip_types
+    text/xml application/xml application/atom+xml application/rss+xml application/xhtml+xml image/svg+xml
+    text/javascript application/javascript application/x-javascript
+    text/x-json application/json application/x-web-app-manifest+json
+    text/css text/plain text/x-component
+    font/opentype application/x-font-ttf application/vnd.ms-fontobject
+    image/x-icon;
+  gzip_disable "MSIE [1-6]\.(?!.*SV1)";
+
   # 静态文件缓存配置
-  
+  open_file_cache max=1000 inactive=20s;
+  open_file_cache_valid 30s;
+  open_file_cache_min_uses 2;
+  open_file_cache_errors on;
+
   # ===== Defaule Server =====
   server {
-  
+
   }
-  
+
   # ===== vhost =====
   include vhost/*.conf;
 }
