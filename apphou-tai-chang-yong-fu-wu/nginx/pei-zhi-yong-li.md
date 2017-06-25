@@ -22,6 +22,7 @@ http {
   include mime.types; # 文件类型
   default_type application/octet-stream; # 默认二进制流
   # charset utf-8; # 默认编码
+  # autoindex on; # 开启目录列表访问,合适下载服务器,默认关闭
 
   # 服务器客户大小以及缓冲器大小配置
   server_names_hash_bucket_size 128;

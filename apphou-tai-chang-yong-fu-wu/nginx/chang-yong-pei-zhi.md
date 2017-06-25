@@ -69,7 +69,7 @@ http
     keepalive_timeout 60;
     tcp_nodelay on;
     server_tokens off;
-    
+
     # autoindex on;
 
     # fastgci模块优化
@@ -135,7 +135,7 @@ client_header_buffer_size 4k;
 
 #服务器名字的hash表大小
 #保存服务器名字的hash表是由指令server_names_hash_max_size 和server_names_hash_bucket_size所控制的。参数hash bucket size总是等于hash表的大小，并且是一路处理器缓存大小的倍数。在减少了在内存中的存取次数后，使在处理器中加速查找hash表键值成为可能。如果hash bucket size等于一路处理器缓存的大小，那么在查找键的时候，最坏的情况下在内存中查找的次数为2。第一次是确定存储单元的地址，第二次是在存储单元中查找键 值。因此，如果Nginx给出需要增大hash max size 或 hash bucket size的提示，那么首要的是增大前一个参数的大小.
-    
+
 server_names_hash_bucket_size 128;
 
 #客户端请求头部的缓冲区大小。这个可以根据你的系统分页大小来设置，一般一个请求的头部大小不会超过1k，不过由于一般系统分页都要大于1k，所以这里设置为分页大小。分页大小可以用命令getconf PAGESIZE取得。
