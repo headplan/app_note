@@ -83,7 +83,9 @@ http
 
 * include - 包含其他的配置文件 , 一般是mime.types一个文件类型的列表 , 和nginx.conf配置文件同级目录下
 * default\_type - 默认类型application/octet-stream;二进制流格式 . 意思是当文件类型未定义时 , 使用二进制流的格式.
-* server\_names\_hash\_bucket\_size 128;
+* server\_names\_hash\_bucket\_size - 服务器名字的hash表大小 . 一般设置一个很长的域名之后会提示修改这个配置大小的错误提示
+* > 保存服务器名字的hash表是由指令server\_names\_hash\_max\_size 和server\_names\_hash\_bucket\_size所控制的。参数hash bucket size总是等于hash表的大小，并且是一路处理器缓存大小的倍数。在减少了在内存中的存取次数后，使在处理器中加速查找hash表键值成为可能。如果hash bucket size等于一路处理器缓存的大小，那么在查找键的时候，最坏的情况下在内存中查找的次数为2。第一次是确定存储单元的地址，第二次是在存储单元中查找键值。因此，如果Nginx给出需要增大hash max size 或 hash bucket size的提示，那么首要的是增大前一个参数的大小.
+* client_header_buffer\_size - 客户端请求头
 
 #### 
 
