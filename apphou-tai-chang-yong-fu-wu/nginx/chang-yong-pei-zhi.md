@@ -154,7 +154,7 @@ sendfile on;
 
 Nginx的httpgzip模块 , 支持在线实时压缩输出数据流 . 编译Nginx时需要带上参数
 
-`--with-http_gzip_static_module`才能使用这个模块 . 
+`--with-http_gzip_static_module`才能使用这个模块 .
 
 ```
 gzip on; # 开启gzip压缩输出
@@ -167,7 +167,7 @@ gzip_types text/plain application/x-javascript text/css application/xml;
 gzip_vary on; # 是否让前端缓存缓存服务器缓存压缩后的GZIP文件
 ```
 
-这里挑了几个解释一下 : 
+这里挑了几个解释一下 :
 
 * gzip\_min\_length - 设置只有当页面的大小大于这个值时 , 才启用gzip压缩 . 页面大小值通过读取http头"Content-Length"来获取 . 建议是1KB , 文件太小 , 压缩有有可能会更大 .
 * gzip\_buffers - gzip的缓冲区的数量和大小 . 默认是申请和"Content-Length"中一样大小的缓冲区 .  
@@ -177,65 +177,21 @@ gzip_vary on; # 是否让前端缓存缓存服务器缓存压缩后的GZIP文件
 
 > **gzip\_proxied**
 >
->   
->
->
-> Nginx做为反向代理的时候启用，
->
->   
->
+> Nginx做为反向代理的时候启用 , 参数 : 
 >
 > param:off\|expired\|no-cache\|no-sotre\|private\|no\_last\_modified\|no\_etag\|auth\|any\]
 >
->   
+> **expample:gzip\_proxied no-cache;**
 >
->
-> expample:gzip\_proxied no-cache;
->
->   
->
->
-> off – 关闭所有的代理结果数据压缩
->
->   
->
->
-> expired – 启用压缩，如果header中包含”Expires”头信息
->
->   
->
->
-> no-cache – 启用压缩，如果header中包含”Cache-Control:no-cache”头信息
->
->   
->
->
-> no-store – 启用压缩，如果header中包含”Cache-Control:no-store”头信息
->
->   
->
->
-> private – 启用压缩，如果header中包含”Cache-Control:private”头信息
->
->   
->
->
-> no\_last\_modified – 启用压缩，如果header中包含”Last\_Modified”头信息
->
->   
->
->
-> no\_etag – 启用压缩，如果header中包含“ETag”头信息
->
->   
->
->
-> auth – 启用压缩，如果header中包含“Authorization”头信息
->
->   
->
->
-> any – 无条件压缩所有结果数据
+> * off – 关闭所有的代理结果数据压缩
+> * expired – 启用压缩，如果header中包含”Expires”头信息
+> * no-cache – 启用压缩，如果header中包含”Cache-Control:no-cache”头信息
+> * no-store – 启用压缩，如果header中包含”Cache-Control:no-store”头信息
+> * private – 启用压缩，如果header中包含”Cache-Control:private”头信息
+> * no\_last\_modified – 启用压缩，如果header中包含”Last\_Modified”头信息
+> * no\_etag – 启用压缩，如果header中包含“ETag”头信息
+> * auth – 启用压缩，如果header中包含“Authorization”头信息
+> * any – 无条件压缩所有结果数据
 
 #### 负载均衡配置
 
