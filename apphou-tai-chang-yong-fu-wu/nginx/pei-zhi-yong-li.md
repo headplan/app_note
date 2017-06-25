@@ -7,7 +7,7 @@ user www www; # 工作进程运行的用户及用户组
 worker_processes auto; # 开启的工作进程数,建议设置为等于CPU总核心数
 # [ debug | info | notice | warn | error | crit ]
 error_log logs/error.log crit; # 全局错误日志输出位置以及级别
-pid logs/nginx.pid # 存储Nginx进程id的文件路径
+pid logs/nginx.pid; # 存储Nginx进程id的文件路径
 worker_rlimit_nofile 51200; # 一个进程打开文件数限制,但受Linux的此参数限制
 
 # 工作模式及连接数上线
@@ -75,6 +75,10 @@ http {
   open_file_cache_valid 30s;
   open_file_cache_min_uses 2;
   open_file_cache_errors on;
+  
+  # 开启限制IP连接数的时候需要使用
+  # limit_zone crawler $binary_remote_addr 10m; # 一般用在限制单线下载以及限速下载时使用
+
 
   # 负载均衡配置
 
