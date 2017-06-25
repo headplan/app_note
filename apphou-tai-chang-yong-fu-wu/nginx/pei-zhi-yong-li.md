@@ -28,6 +28,7 @@ http {
   client_max_body_size 1024m;
   client_body_buffer_size 10m;
 
+  # 高效传输文件模式
   sendfile on;
   tcp_nopush on;
   tcp_nodelay on;
