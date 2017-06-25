@@ -29,6 +29,10 @@ http {
   client_body_buffer_size 10m;
 
   sendfile on;
+  tcp_nopush on;
+  tcp_nodelay on;
+  keepalive_timeout 60;
+  server_tokens off;
 }
 ```
 
