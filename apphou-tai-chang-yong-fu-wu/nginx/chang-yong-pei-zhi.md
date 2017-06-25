@@ -68,6 +68,7 @@ http
     tcp_nopush on;
     keepalive_timeout 60;
     tcp_nodelay on;
+    server_tokens off;
 
     gzip on;
     gzip_min_length 1k;
