@@ -24,7 +24,7 @@ http {
   # charset utf-8; # 默认编码
   # autoindex on; # 开启目录列表访问,合适下载服务器,默认关闭
 
-  # 服务器客户大小以及缓冲器大小配置
+  # 服务器客户大小以及缓冲器大小等配置
   server_names_hash_bucket_size 128;
   client_header_buffer_size 32k;
   large_client_header_buffers 4 32k;
@@ -38,7 +38,7 @@ http {
   keepalive_timeout 60;
   server_tokens off;
 
-  # fastcgi模块配置
+  # fastcgi模块优化配置
   fastcgi_connect_timeout 300;
   fastcgi_send_timeout 300;
   fastcgi_read_timeout 300;
