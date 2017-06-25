@@ -18,15 +18,16 @@ events {
 
 # http配置
 http {
-  include mime.types;
-  default_type application/octet-stream;
-  
+  include mime.types; # 文件类型
+  default_type application/octet-stream; # 默认二进制流
+
+  # 服务器客户大小以及缓冲器大小配置
   server_names_hash_bucket_size 128;
   client_header_buffer_size 32k;
   large_client_header_buffers 4 32k;
   client_max_body_size 1024m;
   client_body_buffer_size 10m;
-  
+
   sendfile on;
 }
 ```
