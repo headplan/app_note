@@ -90,10 +90,10 @@ http
 * client\_max\_body\_size - 客户端请求中http body的大小 , 一般可以理解为请求的文件大小 . 
 * client\_body\_buffer\_size - 配置上一个配置的缓冲器大小 , 可以理解为上面的配置的分页大小
 * sendfile - 是否启动高效传输文件的模式 . 
-* > sendfile可以让Nginx在传输文件时直接在磁盘和tcp Socket之间传输数据 . 如果这个参数不开启 , 会先在用户空间申请一个buffer缓冲器 , 用read函数把数据从磁盘读到cache , 再从cache读取到用户空间的buffer , 再用write函数把数据从用户空间的buffer写入到内核的buffer , 最后到TCP Socket
-  >  . 开始这个参数就可以让数据不用经过用户buffer了 . ![](/assets/sendfile.png)
-
-#### 
+  * sendfile可以让Nginx在传输文件时直接在磁盘和tcp Socket之间传输数据 . 如果这个参数不开启 , 会先在用户空间申请一个buffer缓冲器 , 用read函数把数据从磁盘读到cache , 再从cache读取到用户空间的buffer , 再用write函数把数据从用户空间的buffer写入到内核的buffer , 最后到TCP Socket . 开始这个参数就可以让数据不用经过用户buffer了 . 
+    ![](/assets/sendfile.png)
+* tcp\_nopush - 仅在sendfile开启时有效 , 主要防止网络堵塞 . 
+* keepalive\_timeout - 设置客户端保持活动连接的时间 . 超时服务器会关闭连接 . 
 
 #### 负载均衡配置
 
