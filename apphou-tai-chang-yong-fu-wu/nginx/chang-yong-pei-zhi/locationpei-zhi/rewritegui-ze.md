@@ -1,8 +1,8 @@
 # Rewrite语法参考
 
 ```
-last – 基本上都用这个Flag。
-break – 中止Rewirte，不在继续匹配
+last – 基本上都用这个Flag.停止当前这个请求,并根据rewrite匹配的规则重新发起一个请求.新请求又从第一阶段开始执行.
+break – 中止Rewirte,不在继续匹配.相对last,break并不会重新发起一个请求,只是跳过当前的rewrite阶段,并执行本请求后续的执行阶段.
 redirect – 返回临时重定向的HTTP状态302
 permanent – 返回永久重定向的HTTP状态301
 

@@ -47,7 +47,58 @@ abc.domian.com/sort/2 => abc.domian.com/index.php?act=sort&name=abc&id=2
 3.     }
 ```
 
+
+
+```
+# 只充许固定ip访问网站,并加上密码
+# 这里的加上密码还可以给nginx_status加上密码访问
+# htpasswd文件的内容可以用apache提供的htpasswd工具来产生
+root  /opt/htdocs/www;
+allow   208.97.167.194;
+allow   222.33.1.2;
+allow   231.152.49.4;
+deny    all;
+auth_basic "C1G_ADMIN";
+auth_basic_user_file htpasswd;
+
+# 域名跳转
+server
+{
+    listen       80;
+    server_name  jump.test.com;
+    index index.html index.htm index.php;
+    root  /opt/htdocs/www;
+    rewrite ^/ http://www.test.com/;
+    access_log  off;
+}
+
+# 多域名转向,比如例子中有com和net两个域名,配置让net域名转到com上
+# 301重定向
+server_name  www.test.com www.test.net;
+index index.html index.htm index.php;
+root  /opt/www/htdocs;
+if ($host ~ "test\.net") {
+    rewrite ^(.*) http://www.test.com$1 permanent;
+}
+
+# 三级域名跳转
+if ($http_host ~* "^(.*)\.i\.test\.com$") {
+    rewrite ^(.*) http://top.test.com$1;
+    break;
+}
+
+# 域名镜向
+server
+{
+    listen       80;
+    server_name  mirror.test.com;
+    index index.html index.htm index.php;
+    root  /opt/htdocs/www;
+    rewrite ^/(.*) http://www.test.com/$1 last;
+    access_log  off;
+}
+
+```
+
 **框架网站使用**
-
-
 
