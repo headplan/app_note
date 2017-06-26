@@ -94,7 +94,7 @@ http {
                     '$status $body_bytes_sent "$http_referer" '
                     '"$http_user_agent" $http_x_forwarded_for';
 
-  access_log main /usr/local/nginx/logs/main.log;
+  access_log /usr/local/nginx/logs/main.log main;
 
   # 负载均衡配置
 
@@ -104,12 +104,12 @@ http {
     server_name localhost test.com;
     index index.html
     root /var/www/test;
-    
+
     access_log access /usr/local/nginx/logs/access.log;
 
 
 
-    
+
   }
 
   # ===== vhost =====
