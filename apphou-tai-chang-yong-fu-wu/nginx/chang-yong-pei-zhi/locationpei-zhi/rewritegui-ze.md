@@ -5,13 +5,16 @@ last – 基本上都用这个Flag。
 break – 中止Rewirte，不在继续匹配
 redirect – 返回临时重定向的HTTP状态302
 permanent – 返回永久重定向的HTTP状态301
+
 注：last和break最大的不同在于
 - break是终止当前location的rewrite检测,而且不再进行location匹配 - last是终止当前location的rewrite检测,但会继续重试location匹配并处理区块中的rewrite规则
+
 1、下面是可以用来判断的表达式：
 -f和!-f用来判断是否存在文件
 -d和!-d用来判断是否存在目录
 -e和!-e用来判断是否存在文件或目录
 -x和!-x用来判断文件是否可执行
+
 2、下面是可以用作判断的全局变量
 $args #这个变量等于请求行中的参数。
 $content_length #请求头中的Content-length字段。
