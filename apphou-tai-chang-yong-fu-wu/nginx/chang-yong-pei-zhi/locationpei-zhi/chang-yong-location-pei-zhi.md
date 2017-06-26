@@ -44,11 +44,15 @@ location ~ /\.ht {
 ```
 # 编译源码时带上参数"--with-http_stub_status_module",就安装了Nginx的统计模块
 # 配置,其中allow只允许本机访问,deny禁用所有,可以注释打开
+# 还可以配置加密访问
+# htpasswd文件的内容可以用apache提供的htpasswd工具来产生
 location /nginx_status {
     stub_status on;
     access_log off;
     allow 127.0.0.1;
     deny all;
+    # auth_basic "NginxStatus";
+    # auth_basic_user_file htpasswd;
 }
 # 访问显示内容
 Active connections: 1 
@@ -138,6 +142,54 @@ location ~* ^.+\.(jpg|jpeg|gif|png|swf|rar|zip|css|js)$ {
     root /opt/www/htdocs/web;
     expires 3d;
     break;
+}
+```
+
+**IP限制与域名跳转**
+
+```
+# 只充许固定ip访问网站,并加上密码
+# 这里的加上密码还可以给nginx_status加上密码访问
+# htpasswd文件的内容可以用apache提供的htpasswd工具来产生
+root  /opt/htdocs/www;
+allow   208.97.167.194;
+allow   222.33.1.2;
+allow   231.152.49.4;
+deny    all;
+auth_basic "C1G_ADMIN";
+auth_basic_user_file htpasswd;
+
+# 域名跳转
+server
+2.          {
+3.                  listen       80;
+4.                  server_name  jump.c1gstudio.com;
+5.                  index index.html index.htm index.php;
+6.                  root  /opt/lampp/htdocs/www;
+7.                  rewrite ^/ http://www.c1gstudio.com/;
+8.                  access_log  off;
+9.          }
+多域名转向
+1.     server_name  www.c1gstudio.com www.c1gstudio.net;
+2.                  index index.html index.htm index.php;
+3.                  root  /opt/lampp/htdocs;
+4.     if ($host ~ "c1gstudio\.net") {
+5.     rewrite ^(.*) http://www.c1gstudio.com$1 permanent;
+6.     }
+三级域名跳转
+1.     if ($http_host ~* "^(.*)\.i\.c1gstudio\.com$") {
+2.     rewrite ^(.*) http://top.yingjiesheng.com$1;
+3.     break;
+4.     }
+域名镜向
+1.     server
+2.          {
+3.                  listen       80;
+4.                  server_name  mirror.c1gstudio.com;
+5.                  index index.html index.htm index.php;
+6.                  root  /opt/lampp/htdocs/www;
+7.                  rewrite ^/(.*) http://www.c1gstudio.com/$1 last;
+8.                  access_log  off;
 }
 ```
 
