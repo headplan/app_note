@@ -105,7 +105,7 @@ http {
     index index.html
     root /var/www/test;
 
-    access_log access /usr/local/nginx/logs/access.log;
+    access_log /usr/local/nginx/logs/access.log access;
 
 
 
