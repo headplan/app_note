@@ -51,6 +51,7 @@ server {
 变量注释
 
 ```
+# $remote_add拿到的IP地址是反向代理服务器的iP地址 , $http_x_forwarded_for记录原有客户端的IP地址和原来客户端的请求的服务器地址
 $remote_addr , $http_x_forwarded_for - 记录客户端IP地址
 $remote_user - 记录客户端用户名称
 $request - 记录请求的URL和HTTP协议
@@ -67,6 +68,12 @@ $request_length - 请求的长度(包括请求行 , 请求头和请求正文)
 $request_time - 请求处理时间 , 单位为秒 , 精度毫秒 ; 从读入客户端的第一个字节开始 , 直到把最后一个字符发送给客户端后进行日志写入为止 .
 $time_iso8601 - ISO8601标准格式下的本地时间
 $time_local - 通用日志格式下的本地时间
+$sent_http_content_range - 发送给客户端的响应头拥有“sent_http_”前缀
+$upstream_status - upstream状态
+$upstream_addr - 后台upstream的地址 , 即真正提供服务的主机地址
+$upstream_response_time - 请求过程中 , upstream响应时间
+$ssl_protocol - SSL协议版本
+$ssl_cipher - 交换数据中的算法
 ```
 
 下面是一些例子 , 用来解决不同的问题
@@ -75,7 +82,20 @@ $time_local - 通用日志格式下的本地时间
 # 通用日志记录
 log_format main '$remote_addr - $remote_user [$time_local] "$request" '
                 '$status $body_bytes_sent "$http_referer" '
-                '"$http_user_agent" "$http_x_forwarded_for"';
+                '"$http_user_agent" "$http_x_forwarded_for"'
+                '"$upstream_addr" "$upstream_status" "$upstream_response_time" "$request_time"';
+                
+log_format down '$remote_addr - $remote_user [$time_local] '
+                '"$request" $status $bytes_sent '
+                '"$http_referer" "$http_user_agent" '
+                '"$http_range" "$sent_http_content_range"';
+                
+log_format access '$remote_addr - $remote_user [$time_local] "$request" '
+                  '$status $body_bytes_sent "$http_referer" '
+                  '"$http_user_agent" $http_x_forwarded_for';
+                  
+access_log main /usr/local/nginx/logs/main.log;
+access_log access /usr/local/nginx/logs/access.log;
 ```
 
 
