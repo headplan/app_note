@@ -62,7 +62,83 @@ Reading - 读取到客户端的header信息数
 writing - 返回给客户端的header信息数
 waiting - 开启keep-alive的情况下,这个值等于Active-(Reading+Writing),是已经处理完成,等待下次请求指令的驻留连接.
 当快速请求完毕时,Waiting数比较多是正常的;Reading+Writing比较多,则说明后台并发访问量较大,正在处理过程中.
+```
 
+**禁止配置**
+
+```
+# 禁止htaccess
+location ~/\.ht {
+    deny all;
+}
+# 禁止多个目录
+location ~ ^/(cron|templates)/ {
+    deny all;
+    break;
+}
+
+# 禁止以/data开头的文件
+# 可以禁止/data/下多级目录下.log.txt等请求
+location ~ ^/data {
+    deny all;
+}
+
+# 禁止单个目录
+# 不能禁止.log.txt能请求
+location /searchword/cron/ {
+    deny all;
+}
+
+# 禁止单个文件
+location ~ /data/sql/data.sql {
+    deny all;
+}
+```
+
+**过期时间与防盗链**
+
+```
+# 给favicon.ico和robots.txt设置过期时间;
+# 这里为favicon.ico为99天,robots.txt为7天;
+# 并不记录404错误日志.
+location ~(favicon.ico) {
+    log_not_found off;
+    expires 99d;
+    break;
+}
+
+location ~(robots.txt) {
+    log_not_found off;
+    expires 7d;
+    break;
+}
+
+# 设定某个文件的过期时间;
+# 这里为600秒,并不记录访问日志
+location ^~ /html/scripts/loadhead_1.js {
+    access_log   off;
+    root /opt/lampp/htdocs/web;
+    expires 600;
+    break;
+}
+
+# 文件反盗链并设置过期时间
+# 这里的return 412为自定义的http状态码,默认为403,方便找出正确的盗链的请求
+# "rewrite ^/ http://test.test.com/test.gif;" 显示一张防盗链图片
+# "access_log off;" 不记录访问日志,减轻压力
+# "expires 3d;" 所有文件3天的浏览器缓存
+location ~* ^.+\.(jpg|jpeg|gif|png|swf|rar|zip|css|js)$ {
+    valid_referers none blocked *.test.com *.test.net localhost 192.169.1.11;
+    if ($invalid_referer) {
+        rewrite ^/ http://test.test.com/test.gif
+        return 412;
+        break;
+    }
+    access_log off;
+    root /opt/www/htdocs/web;
+    expires 3d;
+    break;
+}
 ```
 
 
