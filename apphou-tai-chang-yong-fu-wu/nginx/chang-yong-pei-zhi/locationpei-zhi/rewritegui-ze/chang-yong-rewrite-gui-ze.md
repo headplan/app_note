@@ -47,7 +47,7 @@ abc.domian.com/sort/2 => abc.domian.com/index.php?act=sort&name=abc&id=2
 3.     }
 ```
 
-
+**IP限制与域名跳转**
 
 ```
 # 只充许固定ip访问网站,并加上密码
@@ -97,7 +97,6 @@ server
     rewrite ^/(.*) http://www.test.com/$1 last;
     access_log  off;
 }
-
 ```
 
 **框架网站使用**
