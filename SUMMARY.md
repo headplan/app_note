@@ -39,7 +39,7 @@
       * [负载均衡配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/fu-zai-jun-heng-pei-zhi.md)
       * [server虚拟主机配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/serverxu-ni-zhu-ji-pei-zhi.md)
       * [location配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/locationpei-zhi.md)
-      * https配置
+      * [https配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/httpspei-zhi.md)
     * [配置用例](apphou-tai-chang-yong-fu-wu/nginx/pei-zhi-yong-li.md)
   * [MySQL](apphou-tai-chang-yong-fu-wu/mysql.md)
     * [基本架构](apphou-tai-chang-yong-fu-wu/mysql/ji-ben-jia-gou.md)

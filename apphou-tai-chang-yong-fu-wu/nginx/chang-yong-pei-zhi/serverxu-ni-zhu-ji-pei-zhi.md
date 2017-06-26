@@ -84,16 +84,16 @@ log_format main '$remote_addr - $remote_user [$time_local] "$request" '
                 '$status $body_bytes_sent "$http_referer" '
                 '"$http_user_agent" "$http_x_forwarded_for"'
                 '"$upstream_addr" "$upstream_status" "$upstream_response_time" "$request_time"';
-                
+
 log_format down '$remote_addr - $remote_user [$time_local] '
                 '"$request" $status $bytes_sent '
                 '"$http_referer" "$http_user_agent" '
                 '"$http_range" "$sent_http_content_range"';
-                
+
 log_format access '$remote_addr - $remote_user [$time_local] "$request" '
                   '$status $body_bytes_sent "$http_referer" '
                   '"$http_user_agent" $http_x_forwarded_for';
-                  
+
 access_log main /usr/local/nginx/logs/main.log;
 access_log access /usr/local/nginx/logs/access.log;
 ```
