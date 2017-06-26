@@ -75,10 +75,14 @@ http {
   open_file_cache_valid 30s;
   open_file_cache_min_uses 2;
   open_file_cache_errors on;
-  
+
   # 开启限制IP连接数的时候需要使用
   # limit_zone crawler $binary_remote_addr 10m; # 一般用在限制单线下载以及限速下载时使用
 
+  # 日志记录
+  log_format main '$remote_addr - $remote_user [$time_local] "$request" '
+                  '$status $body_bytes_sent "$http_referer" '
+                  '"$http_user_agent" "$http_x_forwarded_for"';
 
   # 负载均衡配置
 
