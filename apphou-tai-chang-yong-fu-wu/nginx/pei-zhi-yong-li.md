@@ -19,6 +19,9 @@ events {
 
 # http配置
 http {
+  # 添加apk和ipa后缀的文件类型
+  # application/vnd.android.package-archive apk;
+  # application/iphone pxl ipa;
   include mime.types; # 文件类型
   default_type application/octet-stream; # 默认二进制流
   # charset utf-8; # 默认编码
@@ -105,11 +108,11 @@ http {
     access_log /usr/local/nginx/logs/access.log combined;
     index index.html index.htm index.php;
     root /var/www/test;
-    
+
     include /usr/local/nginx/conf/rewrite/laravel.conf;
     #error_page 404 /404.html;
     #error_page 502 /502.html;
-  
+
 
 
 
