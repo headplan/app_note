@@ -102,10 +102,14 @@ http {
   server {
     listen 80;
     server_name localhost test.com;
-    index index.html
+    access_log /usr/local/nginx/logs/access.log combined;
+    index index.html index.htm index.php;
     root /var/www/test;
-
-    access_log /usr/local/nginx/logs/access.log access;
+    
+    include /usr/local/nginx/conf/rewrite/laravel.conf;
+    #error_page 404 /404.html;
+    #error_page 502 /502.html;
+  
 
 
 
