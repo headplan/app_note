@@ -105,3 +105,99 @@ server
 
 **框架网站使用**
 
+```
+# thinkphp
+include /usr/local/nginx/conf/rewrite/thinkphp.conf;
+location / {
+  if (!-e $request_filename) {
+    rewrite ^(.*)$ /index.php?s=$1 last;
+    break;
+  }
+}
+
+location ~ \.php {
+  #fastcgi_pass remote_php_ip:9000;
+  fastcgi_pass unix:/dev/shm/php-cgi.sock;
+  fastcgi_index index.php;
+  include fastcgi_params;
+  set $real_script_name $fastcgi_script_name;
+  if ($fastcgi_script_name ~ "^(.+?\.php)(/.+)$") {
+    set $real_script_name $1;
+    #set $path_info $2;
+  }
+  fastcgi_param SCRIPT_FILENAME $document_root$real_script_name;
+  fastcgi_param SCRIPT_NAME $real_script_name;
+  #fastcgi_param PATH_INFO $path_info;
+}
+
+# laravel
+include /usr/local/nginx/conf/rewrite/laravel.conf;
+location / {
+  try_files $uri $uri/ /index.php?$query_string;
+}
+
+# wordpress
+include /usr/local/nginx/conf/rewrite/wordpress.conf;
+location / {
+  try_files $uri $uri/ /index.php?$args;
+}
+rewrite /wp-admin$ $scheme://$host$uri/ permanent;
+
+# Discuz
+include /usr/local/nginx/conf/rewrite/discuz.conf;
+rewrite ^([^\.]*)/topic-(.+)\.html$ $1/portal.php?mod=topic&topic=$2 last;
+rewrite ^([^\.]*)/article-([0-9]+)-([0-9]+)\.html$ $1/portal.php?mod=view&aid=$2&page=$3 last;
+rewrite ^([^\.]*)/forum-(\w+)-([0-9]+)\.html$ $1/forum.php?mod=forumdisplay&fid=$2&page=$3 last;
+rewrite ^([^\.]*)/thread-([0-9]+)-([0-9]+)-([0-9]+)\.html$ $1/forum.php?mod=viewthread&tid=$2&extra=page%3D$4&page=$3 last;
+rewrite ^([^\.]*)/group-([0-9]+)-([0-9]+)\.html$ $1/forum.php?mod=group&fid=$2&page=$3 last;
+rewrite ^([^\.]*)/space-(username|uid)-(.+)\.html$ $1/home.php?mod=space&$2=$3 last;
+rewrite ^([^\.]*)/blog-([0-9]+)-([0-9]+)\.html$ $1/home.php?mod=space&uid=$2&do=blog&id=$3 last;
+rewrite ^([^\.]*)/(fid|tid)-([0-9]+)\.html$ $1/index.php?action=$2&value=$3 last;
+rewrite ^([^\.]*)/([a-z]+[a-z0-9_]*)-([a-z0-9_\-]+)\.html$ $1/plugin.php?id=$2:$3 last;
+#if (!-e $request_filename) {
+#  return 404;
+#}
+
+# Typecho
+include /usr/local/nginx/conf/rewrite/typecho.conf;
+if (!-e $request_filename) {
+  rewrite ^(.*)$ /index.php$1 last;
+}
+
+# Ecshop
+include /usr/local/nginx/conf/rewrite/ecshop.conf;
+if (!-e $request_filename) {
+  rewrite "^/index\.html" /index.php last;
+  rewrite "^/category$" /index.php last;
+  rewrite "^/feed-c([0-9]+)\.xml$" /feed.php?cat=$1 last;
+  rewrite "^/feed-b([0-9]+)\.xml$" /feed.php?brand=$1 last;
+  rewrite "^/feed\.xml$" /feed.php last;
+  rewrite "^/category-([0-9]+)-b([0-9]+)-min([0-9]+)-max([0-9]+)-attr([^-]*)-([0-9]+)-(.+)-([a-zA-Z]+)(.*)\.html$" /category.php?id=$1&brand=$2&price_min=$3&price_max=$4&filter_attr=$5&page=$6&sort=$7&order=$8 last;
+  rewrite "^/category-([0-9]+)-b([0-9]+)-min([0-9]+)-max([0-9]+)-attr([^-]*)(.*)\.html$" /category.php?id=$1&brand=$2&price_min=$3&price_max=$4&filter_attr=$5 last;
+  rewrite "^/category-([0-9]+)-b([0-9]+)-([0-9]+)-(.+)-([a-zA-Z]+)(.*)\.html$" /category.php?id=$1&brand=$2&page=$3&sort=$4&order=$5 last;
+  rewrite "^/category-([0-9]+)-b([0-9]+)-([0-9]+)(.*)\.html$" /category.php?id=$1&brand=$2&page=$3 last;
+  rewrite "^/category-([0-9]+)-b([0-9]+)(.*)\.html$" /category.php?id=$1&brand=$2 last;
+  rewrite "^/category-([0-9]+)(.*)\.html$" /category.php?id=$1 last;
+  rewrite "^/goods-([0-9]+)(.*)\.html" /goods.php?id=$1 last;
+  rewrite "^/article_cat-([0-9]+)-([0-9]+)-(.+)-([a-zA-Z]+)(.*)\.html$" /article_cat.php?id=$1&page=$2&sort=$3&order=$4 last;
+  rewrite "^/article_cat-([0-9]+)-([0-9]+)(.*)\.html$" /article_cat.php?id=$1&page=$2 last;
+  rewrite "^/article_cat-([0-9]+)(.*)\.html$" /article_cat.php?id=$1 last;
+  rewrite "^/article-([0-9]+)(.*)\.html$" /article.php?id=$1 last;
+  rewrite "^/brand-([0-9]+)-c([0-9]+)-([0-9]+)-(.+)-([a-zA-Z]+)\.html" /brand.php?id=$1&cat=$2&page=$3&sort=$4&order=$5 last;
+  rewrite "^/brand-([0-9]+)-c([0-9]+)-([0-9]+)(.*)\.html" /brand.php?id=$1&cat=$2&page=$3 last;
+  rewrite "^/brand-([0-9]+)-c([0-9]+)(.*)\.html" /brand.php?id=$1&cat=$2 last;
+  rewrite "^/brand-([0-9]+)(.*)\.html" /brand.php?id=$1 last;
+  rewrite "^/tag-(.*)\.html" /search.php?keywords=$1 last;
+  rewrite "^/snatch-([0-9]+)\.html$" /snatch.php?id=$1 last;
+  rewrite "^/group_buy-([0-9]+)\.html$" /group_buy.php?act=view&id=$1 last;
+  rewrite "^/auction-([0-9]+)\.html$" /auction.php?act=view&id=$1 last;
+  rewrite "^/exchange-id([0-9]+)(.*)\.html$" /exchange.php?id=$1&act=view last;
+  rewrite "^/exchange-([0-9]+)-min([0-9]+)-max([0-9]+)-([0-9]+)-(.+)-([a-zA-Z]+)(.*)\.html$" /exchange.php?cat_id=$1&integral_min=$2&integral_max=$3&page=$4&sort=$5&order=$6 last;
+  rewrite "^/exchange-([0-9]+)-([0-9]+)-(.+)-([a-zA-Z]+)(.*)\.html$" /exchange.php?cat_id=$1&page=$2&sort=$3&order=$4 last;
+  rewrite "^/exchange-([0-9]+)-([0-9]+)(.*)\.html$" /exchange.php?cat_id=$1&page=$2 last;
+  rewrite "^/exchange-([0-9]+)(.*)\.html$" /exchange.php?cat_id=$1 last;
+}
+```
+
+
+
