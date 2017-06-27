@@ -27,12 +27,63 @@ upstream模块可以为所配置的服务器指定状态值 , 常见的有 :
   * 可以使用proxy\_connect\_timeout和proxy\_read\_timeout来控制
 
 > 注意 : 当负载均衡是ip\_hash算法时 , 服务器的状态值不能是backup和weight .
-
+>
 > **关于max\_fails 参数的理解**
 >
 > 根 据上面的解释 , max\_fails默认为1 , fail\_timeout默 认为10秒 . 也就是说 , 默认情况下后端服务器在10秒钟之内可以容许有一次的失败 , 如果超过1次则视为该服务器有问题 , 将该服务器标记为不可用 . 等待10秒后再将请求发给该服务器 , 以此类推进行后端服务器的健康检查 . 但如果我将max\_fails设置为0 , 则代表不对后端服务器进行健康检查 , 这样一来fail\_timeout参数也就没什么意义了 . 那若后端服务器真的出现问题怎么办呢 ? 上文也说了 , 可以借助proxy\_connect\_timeout和proxy\_read\_timeout进行控制
 
+---
 
+**负载均衡样例**
+
+```
+upstream mysvr { 
+   server 192.168.10.121:3333;
+   server 192.168.10.122:3333;
+}
+server {
+        ....
+   location  ~*^.+$ {         
+      proxy_pass  http://mysvr;  #请求转向mysvr 定义的服务器列表         
+   }
+}
+==========
+upstream mysvr { 
+   server  http://192.168.10.121:3333;
+   server  http://192.168.10.122:3333;
+}
+server {
+   ....
+   location  ~*^.+$ {         
+      proxy_pass  mysvr;  #请求转向mysvr 定义的服务器列表         
+   }
+}
+
+# 热备
+upstream mysvr { 
+   server 127.0.0.1:7878; 
+   server 192.168.10.121:3333 backup;  #热备     
+}
+
+# 轮询
+upstream mysvr { 
+   server 127.0.0.1:7878;
+   server 192.168.10.121:3333;       
+}
+
+# 加权轮询
+upstream mysvr { 
+   server 127.0.0.1:7878 weight=1;
+   server 192.168.10.121:3333 weight=2;
+}
+
+# ip_hash:nginx会让相同的客户端ip请求相同的服务器
+upstream mysvr { 
+   server 127.0.0.1:7878; 
+   server 192.168.10.121:3333;
+   ip_hash;
+}
+```
 
 
 
