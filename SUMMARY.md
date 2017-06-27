@@ -39,6 +39,7 @@
       * [负载均衡配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/fu-zai-jun-heng-pei-zhi.md)
       * [server虚拟主机配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/serverxu-ni-zhu-ji-pei-zhi.md)
       * [location配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/locationpei-zhi.md)
+        * [try\_files](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/locationpei-zhi/tryfiles.md)
         * [Rewrite规则](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/locationpei-zhi/rewritegui-ze.md)
         * [反向代理](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/fu-zai-jun-heng-pei-zhi/fan-xiang-dai-li-pei-zhi.md)
         * [常用location配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/locationpei-zhi/chang-yong-location-pei-zhi.md)

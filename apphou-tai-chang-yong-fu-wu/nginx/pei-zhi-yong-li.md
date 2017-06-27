@@ -108,7 +108,7 @@ http {
     access_log /usr/local/nginx/logs/access.log combined;
     index index.html index.htm index.php;
     root /var/www/test;
-
+    # if ($host != test123.com) {  return 301 $scheme://test123.com$request_uri;  }
     include /usr/local/nginx/conf/rewrite/laravel.conf;
     #error_page 404 /404.html;
     #error_page 502 /502.html;
