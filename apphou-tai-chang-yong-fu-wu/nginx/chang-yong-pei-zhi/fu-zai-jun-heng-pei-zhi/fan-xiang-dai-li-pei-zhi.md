@@ -4,6 +4,8 @@
 
 #### **正向代理**
 
+> 正向代理类似一个跳板机 , 代理访问外部资源 .
+
 [  
 ![](https://img.hacpai.com/file/2017/2/637420bcbc2548c48a9e0e13a98906b7.png)](https://img.hacpai.com/file/2017/2/637420bcbc2548c48a9e0e13a98906b7.png?imageView2/2/w/768/format/jpg/interlace/0/q)
 
@@ -23,7 +25,11 @@
 
 6 . 从图中可以看出 , 采用代理服务器可以做一些验证 , 比如上网权限 , 因为要连接互联网首先得经过代理服务器 . \(权限验证\)
 
-#### **反向代理**[ ![](https://img.hacpai.com/file/2017/2/de54cd5216514286b07721ffa1ccccef.png)](https://img.hacpai.com/file/2017/2/de54cd5216514286b07721ffa1ccccef.png?imageView2/2/w/768/format/jpg/interlace/0/q)
+#### **反向代理**
+
+> 反向代理（Reverse Proxy）实际运行方式是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个服务器。
+
+#### [ ![](https://img.hacpai.com/file/2017/2/de54cd5216514286b07721ffa1ccccef.png)](https://img.hacpai.com/file/2017/2/de54cd5216514286b07721ffa1ccccef.png?imageView2/2/w/768/format/jpg/interlace/0/q)
 
 1 . 反向代理正好与正向代理相反 , 对于客户端而言代理服务器就像是原始服务器 , 并且客户端不需要进行任何特别的设置 . 客户端向反向代理的命名空间 \(name-space\) 中的内容发送普通请求 , 接着反向代理将判断向何处 \(原始服务器\) 转交请求 , 并将获得的内容返回给客户端 .
 
