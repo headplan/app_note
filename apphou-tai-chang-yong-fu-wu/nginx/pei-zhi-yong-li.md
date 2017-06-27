@@ -127,7 +127,6 @@ http {
       if ($invalid_referer) {
         rewrite ^/ http://test.test.com/test.gif
         return 412;
-        break;
       }
     }
 
