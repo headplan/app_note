@@ -125,7 +125,7 @@ http {
     location ~ .*\.(wma|wmv|asf|mp3|mmf|zip|rar|jpg|gif|png|swf|flv|mp4)$ {
       valid_referers none blocked *.test.com www.test.com;
       if ($invalid_referer) {
-        rewrite ^/ http://test.test.com/test.gif
+        rewrite ^/ http://test.test.com/test.gif;
         return 412;
       }
     }
