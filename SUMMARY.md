@@ -43,7 +43,7 @@
         * [Rewrite规则](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/locationpei-zhi/rewritegui-ze.md)
         * [反向代理](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/fu-zai-jun-heng-pei-zhi/fan-xiang-dai-li-pei-zhi.md)
           * [Nginx正向代理](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/fu-zai-jun-heng-pei-zhi/fan-xiang-dai-li-pei-zhi/nginxzheng-xiang-dai-li.md)
-          * Nginx反向代理
+          * [Nginx反向代理](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/fu-zai-jun-heng-pei-zhi/fan-xiang-dai-li-pei-zhi/nginxfan-xiang-dai-li.md)
         * [常用location配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/locationpei-zhi/chang-yong-location-pei-zhi.md)
         * [常用Rewrite规则](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/locationpei-zhi/rewritegui-ze/chang-yong-rewrite-gui-ze.md)
       * [https配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/httpspei-zhi.md)
