@@ -1,6 +1,6 @@
 # Nginx反向代理
 
-http proxy模块中的相关指令 : 
+http proxy模块中的相关指令 :
 
 ```
 proxy_connect_timeout 300s; # 后端服务器连接的超时时间_发起握手等候响应超时时间
@@ -34,14 +34,44 @@ server {
      server_name www.test.com;
      underscores_in_headers on;
      ignore_invalid_headers off;
-     
+
      location / {
-     93             proxy_set_header Host $host;
-     94             proxy_set_header X-Real-IP $remote_addr;
-     95             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-     96             proxy_pass http://qss;
-     97         }
+          # include ...proxy.conf
+          proxy_connect_timeout 300s;
+          proxy_send_timeout 900;
+          proxy_read_timeout 900;
+          proxy_buffer_size 32k;
+          proxy_buffers 4 64k;
+          proxy_busy_buffers_size 128k;
+          proxy_redirect off;
+          proxy_hide_header Vary;
+          proxy_set_header Accept-Encoding '';
+          proxy_set_header Referer $http_referer;
+          proxy_set_header Cookie $http_cookie;
+          proxy_set_header Host $host:$server_port;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_pass http://test;
+}
 ```
+
+**这里记录前三个参数配置的意义**
+
+```
+proxy_next_upstream - 参数很有用,他可以避免很多错误.
+max_fails(负载均衡参数) - 参数在繁忙的大型系统中建议设置为3，如果没有几个后端服务器的话保持默认即可.
+proxy_read_timeout - 要根据自身程序而定,不要过大,也不要太小.如果是php程序,请参照php.ini中的max_execution_time选项值.
+```
+
+**这里记录后三个参数的作用**
+
+```
+proxy_buffer_size 32k;
+proxy_buffers 4 64k;
+proxy_busy_buffers_size 128k;
+```
+
+> **nginx proxy\_buffer\_size 解决后端服务传输数据过多 , 其实是header过大的问题 . **
 
 **这里记录两个自定义header头的参数**
 
@@ -51,7 +81,7 @@ ignore_invalid_headers off;
 # 是否忽略不合法的http首部.默认为on,off意味着请求首部中出现不合规的首部将拒绝响应.只能用于server和http中,建议改为off.
 ```
 
-1 . nginx是支持读取非nginx标准的用户自定义header的 , 但是需要在http或者server下开启header的下划线支持 : 
+1 . nginx是支持读取非nginx标准的用户自定义header的 , 但是需要在http或者server下开启header的下划线支持 :
 
 * underscores\_in\_headers on;
 
@@ -62,7 +92,7 @@ ignore_invalid_headers off;
 3 . 如果需要把自定义header传递到下一个nginx
 
 * 如果是在nginx中自定义采用proxy\_set\_header X\_CUSTOM\_HEADER $http\_host;
-* 如果是在用户请求时自定义的header，例如curl –head -H “X\_CUSTOM\_HEADER: foo” [http://domain.com/api/test](http://domain.com/api/test)
+* 如果是在用户请求时自定义的header，例如curl –head -H “X\_CUSTOM\_HEADER: foo” [http://domain.com/api/test](http://domain.com/api/test)
   则需要通过`proxy_pass_header X_CUSTOM_HEADER`来传递
 
 
