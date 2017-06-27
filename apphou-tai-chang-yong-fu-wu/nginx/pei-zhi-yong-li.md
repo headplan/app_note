@@ -109,9 +109,9 @@ http {
     index index.html index.htm index.php;
     root /var/www/test;
     # if ($host != test.com) {  return 301 $scheme://test.com$request_uri;  }
-    include /usr/local/nginx/conf/rewrite/laravel.conf;
-    #error_page 404 /404.html;
-    #error_page 502 /502.html;
+    include /usr/local/nginx/conf/rewrite/other.conf;
+    # error_page 404 /404.html;
+    # error_page 502 /502.html;
 
 
 
