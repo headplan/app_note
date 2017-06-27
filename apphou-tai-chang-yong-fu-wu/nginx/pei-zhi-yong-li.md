@@ -113,9 +113,35 @@ http {
     # error_page 404 /404.html;
     # error_page 502 /502.html;
 
+    location /nginx_status {
+      stub_status on;
+      access_log off;
+      allow 127.0.0.1;
+      deny all;
+      # auth_basic "NginxStatus";
+      # auth_basic_user_file htpasswd;
+    }
 
+    location ~ [^/]\.php(/|$) {
+      #fastcgi_pass remote_php_ip:9000;
+      fastcgi_pass unix:/dev/shm/php-cgi.sock;
+      fastcgi_index index.php;
+      include fastcgi.conf;
+    }
 
+    location ~ .*\.(gif|jpg|jpeg|png|bmp|swf|flv|mp4|ico)$ {
+      expires 30d;
+      access_log off;
+    }
 
+    location ~ .*\.(js|css)?$ {
+      expires 7d;
+      access_log off;
+    }
+
+    location ~ /\.ht {
+      deny all;
+    }
 
   }
 
