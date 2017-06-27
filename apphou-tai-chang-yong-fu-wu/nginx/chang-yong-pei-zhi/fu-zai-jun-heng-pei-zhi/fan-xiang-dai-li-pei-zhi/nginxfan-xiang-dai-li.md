@@ -173,6 +173,7 @@ proxy_headers_hash_max_size 1024; # 存放http报文头的哈希表容量上限,
 proxy_headers_hash_bucket_size 128; # nginx服务器申请存放http报文头的哈希表容量大小.默认为64个字符.
 proxy_next_upstream timeout;  # 反向代理upstream中设置的服务器组,出现故障时,被代理服务器返回的状态值.
 # error|timeout|invalid_header|http_500|http_502|http_503|http_504|http_404|off
+# 还有一点要注意的是,这个配置可能会让写请求就会发生多次提交事件
 proxy_ssl_session_reuse on; # 默认为on,如果我们在错误日志中发现“SSL3_GET_FINSHED:digest check failed”的情况时
 # 可以将该指令设置为off
 ```
