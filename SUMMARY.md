@@ -46,6 +46,7 @@
         * [常用Rewrite规则](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/locationpei-zhi/rewritegui-ze/chang-yong-rewrite-gui-ze.md)
       * [https配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/httpspei-zhi.md)
     * [配置用例](apphou-tai-chang-yong-fu-wu/nginx/pei-zhi-yong-li.md)
+    * [Nginx处理业务逻辑](apphou-tai-chang-yong-fu-wu/nginx/nginxchu-li-ye-wu-luo-ji.md)
   * [MySQL](apphou-tai-chang-yong-fu-wu/mysql.md)
     * [基本架构](apphou-tai-chang-yong-fu-wu/mysql/ji-ben-jia-gou.md)
     * [配置文件详解](apphou-tai-chang-yong-fu-wu/mysql/pei-zhi-wen-jian-xiang-jie.md)
