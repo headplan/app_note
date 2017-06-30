@@ -99,7 +99,7 @@ http {
 
   access_log /usr/local/nginx/logs/main.log main;
 
-  # 负载均衡配置
+  # 负载均衡配置(参考相关笔记)
 
   # ===== Defaule Server =====
   server {
@@ -112,6 +112,8 @@ http {
     include /usr/local/nginx/conf/rewrite/other.conf;
     # error_page 404 /404.html;
     # error_page 502 /502.html;
+
+    # 反向代理配置(参考相关笔记) 
 
     location /nginx_status {
       stub_status on;
