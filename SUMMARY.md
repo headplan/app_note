@@ -32,8 +32,9 @@
   * [Linux](apphou-tai-chang-yong-fu-wu/linux.md)
     * [基本的系统优化](apphou-tai-chang-yong-fu-wu/linux/ji-ben-de-xi-tong-you-hua.md)
     * [常用的命令](apphou-tai-chang-yong-fu-wu/linux/chang-yong-de-ming-ling.md)
-    * 故障分析案例
+    * [故障分析案例](apphou-tai-chang-yong-fu-wu/linux/gu-zhang-fen-xi-an-li.md)
   * [Nginx](apphou-tai-chang-yong-fu-wu/nginx.md)
+    * [安装](apphou-tai-chang-yong-fu-wu/nginx/an-zhuang.md)
     * [常用配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi.md)
       * [fastcgi模块](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/fastcgimo-kuai.md)
       * [负载均衡配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/fu-zai-jun-heng-pei-zhi.md)
@@ -48,13 +49,14 @@
         * [常用Rewrite规则](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/locationpei-zhi/rewritegui-ze/chang-yong-rewrite-gui-ze.md)
       * [https配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/httpspei-zhi.md)
     * [配置用例](apphou-tai-chang-yong-fu-wu/nginx/pei-zhi-yong-li.md)
+    * [实现负载均衡的方案](apphou-tai-chang-yong-fu-wu/nginx/shi-xian-fu-zai-jun-heng-de-fang-an.md)
     * [Nginx处理业务逻辑](apphou-tai-chang-yong-fu-wu/nginx/nginxchu-li-ye-wu-luo-ji.md)
   * [MySQL](apphou-tai-chang-yong-fu-wu/mysql.md)
     * [基本架构](apphou-tai-chang-yong-fu-wu/mysql/ji-ben-jia-gou.md)
     * [配置文件详解](apphou-tai-chang-yong-fu-wu/mysql/pei-zhi-wen-jian-xiang-jie.md)
     * [优化\(软件,硬件,架构\)](apphou-tai-chang-yong-fu-wu/mysql/you-531628-ruan-4ef62c-ying-4ef62c-jia-678429.md)
-    * SQL慢查询分析
-    * 云数据库简介
+    * [SQL慢查询分析](apphou-tai-chang-yong-fu-wu/mysql/sqlman-cha-xun-fen-xi.md)
+    * [云数据库简介](apphou-tai-chang-yong-fu-wu/mysql/yun-shu-ju-ku-jian-jie.md)
   * [Redis](apphou-tai-chang-yong-fu-wu/redis.md)
     * [Redis的简介](apphou-tai-chang-yong-fu-wu/redis/redside-jian-jie.md)
     * [常用数据结构及应用场景](apphou-tai-chang-yong-fu-wu/redis/chang-yong-shu-ju-jie-gou-ji-ying-yong-chang-jing.md)
@@ -63,7 +65,7 @@
       * [list:模拟队列操作](apphou-tai-chang-yong-fu-wu/redis/chang-yong-shu-ju-jie-gou-ji-ying-yong-chang-jing/listmo-ni-dui-lie-cao-zuo.md)
       * set:无序且不重复的元素集合
       * sorted set:有序且不重复的元素集合
-    * 内存优化
+    * [内存优化](apphou-tai-chang-yong-fu-wu/redis/nei-cun-you-hua.md)
     * 集群
     * 持久化
     * 故障排除案例
