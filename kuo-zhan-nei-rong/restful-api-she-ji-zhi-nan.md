@@ -38,7 +38,19 @@ https://api.example.com/v1/
 
 另一种做法是，将版本号放在HTTP头信息中，但不如放入URL方便和直观。[Github](https://developer.github.com/v3/media/#request-specific-version)采用这种做法。但RESTful建议的是前一种方式。
 
-路径
+#### 路径
+
+路径又称"终点"（endpoint），表示API的具体网址。就是我们常说的路由。
+
+在RESTful架构中，每个网址代表一种资源（resource），所以网址中不能有动词，只能有名词，而且所用的名词往往与数据库的表格名对应。一般来说，数据库中的表都是同种记录的"集合"（collection），所以API中的名词也应该使用复数。
+
+举例来说，有一个API提供动物园（zoo）的信息，还包括各种动物和雇员的信息，则它的路径应该设计成下面这样。
+
+```
+https://api.example.com/v1/zoos
+https://api.example.com/v1/animals
+https://api.example.com/v1/employees
+```
 
 HTTP动词
 
