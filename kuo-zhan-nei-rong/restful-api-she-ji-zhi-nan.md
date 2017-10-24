@@ -4,17 +4,39 @@
 
 因此，必须有一种统一的机制，方便不同的前端设备与后端进行通信。这导致API构架的流行，甚至出现["API First"](http://www.google.com.hk/search?q=API+first)的设计思想。[RESTful API](http://en.wikipedia.org/wiki/Representational_state_transfer)是目前比较成熟的一套互联网应用程序的API设计理论。
 
-介绍RESTful API的设计细节，探讨如何设计一套合理、好用的API , 参考下面两篇文章 : 
+介绍RESTful API的设计细节，探讨如何设计一套合理、好用的API , 参考下面两篇文章 :
 
-> https://codeplanet.io/principles-good-restful-api-design/
+> [https://codeplanet.io/principles-good-restful-api-design/](https://codeplanet.io/principles-good-restful-api-design/)
 >
-> https://bourgeois.me/rest/
+> [https://bourgeois.me/rest/](https://bourgeois.me/rest/)
 
-协议
+#### 协议
 
-域名
+API与用户的通信协议，总是使用HTTPs协议。
 
-版本
+#### 域名
+
+应该尽量将API部署在专用域名之下。
+
+```
+https://api.example.com
+```
+
+如果确定API很简单，不会有进一步扩展，可以考虑放在主域名下。
+
+```
+https://example.org/api/
+```
+
+#### 版本
+
+应该将API的版本号放入URL。
+
+```
+https://api.example.com/v1/
+```
+
+另一种做法是，将版本号放在HTTP头信息中，但不如放入URL方便和直观。[Github](https://developer.github.com/v3/media/#request-specific-version)采用这种做法。但RESTful建议的是前一种方式。
 
 路径
 
