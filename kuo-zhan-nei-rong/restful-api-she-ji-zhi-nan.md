@@ -133,11 +133,62 @@ DELETE /zoos/ID/animals/ID：删除某个指定动物园的指定动物
 }
 ```
 
-返回结果
+#### 返回结果
 
-Hypermedia API
+针对不同操作，服务器向用户返回的结果应该符合以下规范。
 
-其他
+```
+GET /collection：返回资源对象的列表（数组）
+GET /collection/resource：返回单个资源对象
+POST /collection：返回新生成的资源对象
+PUT /collection/resource：返回完整的资源对象
+PATCH /collection/resource：返回完整的资源对象
+DELETE /collection/resource：返回一个空文档
+```
+
+#### Hypermedia API
+
+RESTful API最好做到Hypermedia，即返回结果中提供链接，连向其他API方法，使得用户不查文档，也知道下一步应该做什么。
+
+比如，当用户向api.example.com的根目录发出请求，会得到这样一个文档。
+
+```
+{"link": {
+  "rel":   "collection https://www.example.com/zoos",
+  "href":  "https://api.example.com/zoos",
+  "title": "List of zoos",
+  "type":  "application/vnd.yourformat+json"
+}}
+```
+
+上面代码表示，文档中有一个link属性，用户读取这个属性就知道下一步该调用什么API了。rel表示这个API与当前网址的关系（collection关系，并给出该collection的网址），href表示API的路径，title表示API的标题，type表示返回类型。
+
+Hypermedia API的设计被称为[HATEOAS](http://en.wikipedia.org/wiki/HATEOAS)。Github的API就是这种设计，访问[api.github.com](https://api.github.com/)会得到一个所有可用API的网址列表。
+
+```
+{
+  "current_user_url": "https://api.github.com/user",
+  "authorizations_url": "https://api.github.com/authorizations",
+  // ...
+}
+```
+
+从上面可以看到，如果想获取当前用户的信息，应该去访问[api.github.com/user](https://api.github.com/user)，然后就得到了下面结果。
+
+```
+{
+  "message": "Requires authentication",
+  "documentation_url": "https://developer.github.com/v3"
+}
+```
+
+上面代码表示，服务器给出了提示信息，以及文档的网址。
+
+#### 其他
+
+（1）API的身份认证应该使用OAuth 2.0框架 . 
+
+（2）服务器返回的数据格式 , 应该尽量使用JSON , 避免使用XML . 
 
 > 相关参考
 >
