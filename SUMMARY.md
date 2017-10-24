@@ -74,4 +74,6 @@
   * [剖析](pou-xi.md)
   * 演讲
 * [扩展内容](kuo-zhan-nei-rong.md)
+  * 理解RESTful架构
+  * RESTful API 设计指南
 
