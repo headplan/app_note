@@ -25,7 +25,7 @@
     * [图片处理](核心/tu-pian-chu-li.md)
     * [视频处理](核心/shi-pin-chu-li.md)
     * [获取APK和IPA文件里的资源](核心/huo-qu-apk-he-ipa-wen-jian-li-de-zi-yuan.md)
-    * 文件系统
+    * [文件系统](核心/wen-jian-xi-tong.md)
     * [ELK日志分析平台](核心/elkri-zhi-fen-xi-ping-tai.md)
     * [Docker构建一致的开发流程](核心/dockergou-jian-yi-zhi-de-kai-fa-liu-cheng.md)
 * [App后台常用服务](apphou-tai-chang-yong-fu-wu.md)
@@ -69,8 +69,9 @@
     * 集群
     * 持久化
     * 故障排除案例
-  * MongoDB
-* App后台架构
-  * 剖析
+  * [MongoDB](apphou-tai-chang-yong-fu-wu/mongodb.md)
+* [App后台架构](apphou-tai-jia-gou.md)
+  * [剖析](pou-xi.md)
   * 演讲
+* [扩展内容](kuo-zhan-nei-rong.md)
 
