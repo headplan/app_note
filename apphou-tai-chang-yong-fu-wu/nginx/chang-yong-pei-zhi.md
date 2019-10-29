@@ -11,7 +11,7 @@ Nginx的配置文件nginx.conf是纯文本文件 , 位于Nginx安装目录的con
 
 ![](/assets/nginx.png)
 
-#### Nginx的全局配置
+Nginx的全局配置
 
 ```
 user www www;

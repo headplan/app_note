@@ -35,21 +35,6 @@
     * [故障分析案例](apphou-tai-chang-yong-fu-wu/linux/gu-zhang-fen-xi-an-li.md)
   * [Nginx](apphou-tai-chang-yong-fu-wu/nginx.md)
     * [安装](apphou-tai-chang-yong-fu-wu/nginx/an-zhuang.md)
-    * [常用配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi.md)
-      * [fastcgi模块](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/fastcgimo-kuai.md)
-      * [负载均衡配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/fu-zai-jun-heng-pei-zhi.md)
-      * [server虚拟主机配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/serverxu-ni-zhu-ji-pei-zhi.md)
-      * [location配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/locationpei-zhi.md)
-        * [try\_files](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/locationpei-zhi/tryfiles.md)
-        * [Rewrite规则](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/locationpei-zhi/rewritegui-ze.md)
-        * [反向代理](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/fu-zai-jun-heng-pei-zhi/fan-xiang-dai-li-pei-zhi.md)
-          * [Nginx正向代理](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/fu-zai-jun-heng-pei-zhi/fan-xiang-dai-li-pei-zhi/nginxzheng-xiang-dai-li.md)
-          * [Nginx反向代理](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/fu-zai-jun-heng-pei-zhi/fan-xiang-dai-li-pei-zhi/nginxfan-xiang-dai-li.md)
-        * [常用location配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/locationpei-zhi/chang-yong-location-pei-zhi.md)
-        * [常用Rewrite规则](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/locationpei-zhi/rewritegui-ze/chang-yong-rewrite-gui-ze.md)
-      * [https配置](apphou-tai-chang-yong-fu-wu/nginx/chang-yong-pei-zhi/httpspei-zhi.md)
-    * [配置用例](apphou-tai-chang-yong-fu-wu/nginx/pei-zhi-yong-li.md)
-    * [实现负载均衡的方案](apphou-tai-chang-yong-fu-wu/nginx/shi-xian-fu-zai-jun-heng-de-fang-an.md)
     * [Nginx处理业务逻辑](apphou-tai-chang-yong-fu-wu/nginx/nginxchu-li-ye-wu-luo-ji.md)
   * [MySQL](apphou-tai-chang-yong-fu-wu/mysql.md)
     * [基本架构](apphou-tai-chang-yong-fu-wu/mysql/ji-ben-jia-gou.md)
@@ -63,8 +48,8 @@
       * [string:存储简单的数据](apphou-tai-chang-yong-fu-wu/redis/chang-yong-shu-ju-jie-gou-ji-ying-yong-chang-jing/stringcun-chu-jian-dan-de-shu-ju.md)
       * [hash:存储对象的数据](apphou-tai-chang-yong-fu-wu/redis/chang-yong-shu-ju-jie-gou-ji-ying-yong-chang-jing/hashcun-chu-dui-xiang-de-shu-ju.md)
       * [list:模拟队列操作](apphou-tai-chang-yong-fu-wu/redis/chang-yong-shu-ju-jie-gou-ji-ying-yong-chang-jing/listmo-ni-dui-lie-cao-zuo.md)
-      * set:无序且不重复的元素集合
-      * sorted set:有序且不重复的元素集合
+      * [set:无序且不重复的元素集合](apphou-tai-chang-yong-fu-wu/redis/chang-yong-shu-ju-jie-gou-ji-ying-yong-chang-jing/setwu-xu-qie-bu-zhong-fu-de-yuan-su-ji-he.md)
+      * [sorted set:有序且不重复的元素集合](apphou-tai-chang-yong-fu-wu/redis/chang-yong-shu-ju-jie-gou-ji-ying-yong-chang-jing/sorted-setyou-xu-qie-bu-zhong-fu-de-yuan-su-ji-he.md)
     * [内存优化](apphou-tai-chang-yong-fu-wu/redis/nei-cun-you-hua.md)
     * 集群
     * 持久化
@@ -72,7 +57,7 @@
   * [MongoDB](apphou-tai-chang-yong-fu-wu/mongodb.md)
 * [App后台架构](apphou-tai-jia-gou.md)
   * [剖析](pou-xi.md)
-  * 演讲
+  * [演讲](yan-jiang.md)
 * [扩展内容](kuo-zhan-nei-rong.md)
   * [理解RESTful架构](kuo-zhan-nei-rong/li-jie-restful-jia-gou.md)
   * [RESTful API 设计指南](kuo-zhan-nei-rong/restful-api-she-ji-zhi-nan.md)
